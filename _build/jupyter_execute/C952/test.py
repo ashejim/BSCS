@@ -17,10 +17,14 @@
 
 from jupyterquiz import display_quiz
 
-git_path="https://raw.githubusercontent.com/jmshea/jupyterquiz/main/examples/"
+# git_path="https://raw.githubusercontent.com/jmshea/jupyterquiz/main/examples/"
+git_path="./"
 
 
 # ## Test all question types, standard URL loading method:
+# 
+# <!-- Mathjax doesn't seem to run unless it's initiated in a markdown file? Might suppress output to hack. -->
+# <!-- $\pi$ -->
 
 # In[2]:
 
