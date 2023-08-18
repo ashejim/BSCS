@@ -10,8 +10,10 @@ root: intro
 chapters:
  - file: C949
  - file: C950
- - file: C952
  - file: C951
+ - file: C952
+#  - file: C952/test
 #  - file: C964
-#  - file: ci_page 
+#  - file: ci_page
+ - url: https://ashejim.github.io/C964/intro.html
  - file: support_this_page
