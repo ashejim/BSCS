@@ -19,7 +19,7 @@ For a demonstration on this page, I'll use Anaconda because environments can be 
 It's a tool that keeps dependencies required for different projects separate by creating isolated python virtual environments for them. This is one of the most important tools Python developers use. (TODO add GeekforGeek reference) See [Python Virtual Environment](https://www.geeksforgeeks.org/python-virtual-environment/) for more detals. 
 ```
 
-## Step 2. Install the Required PackagesOpen a Windows terminal (or a terminal by launching CMD.exe from Anaconda Navigator. 
+## Step 2. Install the Required PackagesOpen a Windows terminal (or a terminal by launching CMD.exe from Anaconda Navigator.
 
 **Install Jupyter-book** which converts markdown and Jupyter-notebook files into HTML.
 
