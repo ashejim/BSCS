@@ -1,0 +1,20 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+# https://jupyterbook.org/en/stable/structure/configure.html#exclude-pages-from-your-build
+# exclude_patterns: [pattern1/*, path/to/myfile.ipynb]
+
+format: jb-book
+root: intro
+
+chapters:
+ - file: C949
+ - file: C950
+ - file: C951
+ - file: C952
+#  - file: C952/test
+#  - file: C964
+#  - file: ci_page
+ - url: https://ashejim.github.io/C964/intro.html
+   title: C964
+ - file: support_this_page

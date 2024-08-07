@@ -1,0 +1,32 @@
+# Creating a Github VC Page
+
+At the heart of GitHub is the open-source version control system (VCS) -Git. For the non-software folks, Git is for managing collaborative projects. It maintintains consitentcy while developers simulatenously work on the same project -but for your CV there will probably only be one "developer" -you. So some of the more complictaed things about Git can be skipped over, e.g., push, pull, merge, etc. You will only need to sync your local with your online files (in the GitHub repo) and then publish the repo files to GitHub pages.
+
+This section covers getting the basics:
+
+1. A Github.com account
+2. An HTML editor
+
+Everything can be done through terminal, but we'll keep things simple and stick with the GitHub online GUI.
+
+## Setuip a GitHub account
+
+[Click here](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home) and follow the instructions. All you need is an email. Everything is free (if you keep it public)!
+
+GitHub is a platform and cloud-based service for software development and version control using Git, allowing developers to store and manage their code. GitHub is not the only option, but it is the most widely used. For another great option check out [GitLab](https://about.gitlab.com
+
+If you already have a GitHub repository you can skip to the next section, [Create entry file](GitHub_CV:entry_files). More details here: [GitHub Docs](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
+
+1. Create a [GitHub Account](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home).
+2. Create a new repositroy: $+$.
+3. Give it a name.
+4. Optional: set to **Public**, add a **README** file, and **Choose a license**.
+5. Click **Create Repository**
+
+Setting the repos' name to your GitHub *username* creates a special repository. It's a good idea. You'll be able to use the same name and repo for both an online CV and a GitHub profile (see: [How to Create a GitHub Portfolio(https://github.com/katiehuangx/How-to-Create-a-GitHub-Portfolio/blob/main/README.md)).
+
+(GitHub_CV:entry_files)
+
+## Create some Entry Files
+
+https://github.com/ashejim/ashejim
