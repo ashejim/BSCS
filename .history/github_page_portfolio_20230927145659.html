@@ -1,0 +1,758 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Creating Your Own GitHub Webpage Through Terminal! &#8212; Jim&#39;s Stuff</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/my_css.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "github-org/github-repo");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KX2MGTZB0G"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KX2MGTZB0G');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '.history/github_page_portfolio_20230927145659';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/Ahflors_sph_watermark.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/Ahflors_sph_watermark.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to BSCS archive Site!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../C949.html">C949 Data Structures &amp; Algorithms I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../C950.html">C950 Data Structures &amp; Algorithms II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../C951.html">C951 Introduction to Artificial Intelligence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../C952.html">C952 Computer Architecture</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://ashejim.github.io/C964/intro.html">C964 Capstone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support_this_page.html">Help Support this Website</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ashejim/BSCS" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ashejim/BSCS/issues/new?title=Issue%20on%20page%20%2F.history/github_page_portfolio_20230927145659.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/.history/github_page_portfolio_20230927145659.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Creating Your Own GitHub Webpage Through Terminal!</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-need-to-get-started">What you need to get started…</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-getting-python">Step 1. Getting Python.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-the-required-packagesopen-a-windows-terminal-or-a-terminal-by-launching-cmd-exe-from-anaconda-navigator">Step 2. Install the Required PackagesOpen a Windows terminal (or a terminal by launching CMD.exe from Anaconda Navigator.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-jupyter-book">Step 3. Create a Jupyter-Book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-add-some-content">Step 4. Add some content!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-turn-your-markdown-jupyter-files-into-html">Step 5. Turn your Markdown/Jupyter files into HTML.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-move-your-web-files-to-the-web">Step 6. Move Your Web files to the Web!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-sync-your-local-repo-to-the-github-repository">Step 7. Sync your local repo to the GitHub repository.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-sync-your-book-to-a-gitpage">Step 8. Sync your book to a GitPage.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-your-page">Edit your page</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#headings">Headings</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="creating-your-own-github-webpage-through-terminal">
+<h1>Creating Your Own GitHub Webpage Through Terminal!<a class="headerlink" href="#creating-your-own-github-webpage-through-terminal" title="Permalink to this heading">#</a></h1>
+<section id="what-you-need-to-get-started">
+<h2>What you need to get started…<a class="headerlink" href="#what-you-need-to-get-started" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Python 3 (<span class="math notranslate nohighlight">\(\geq 3.9\)</span> recommended)</p></li>
+<li><p>The <a class="reference external" href="https://pypi.org/project/jupyter-book/">Jupyter-Book</a> &amp; <a class="reference external" href="https://pypi.org/project/ghp-import/">ghp-import</a> packages.</p></li>
+<li><p>A <a class="reference external" href="https://www.markdownguide.org/">Markdown</a> editor.</p></li>
+<li><p>A GitHub account and repository.</p></li>
+</ol>
+</section>
+<section id="step-1-getting-python">
+<h2>Step 1. Getting Python.<a class="headerlink" href="#step-1-getting-python" title="Permalink to this heading">#</a></h2>
+<p>Choose your flavor.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.python.org/downloads/">python.org</a></p></li>
+<li><p><a class="reference external" href="https://www.anaconda.com/products/distribution">Anaconda</a></p></li>
+</ul>
+<p>For a demonstration on this page, I’ll use Anaconda because environments can be managed through a GUI; see <a class="reference external" href="https://medium.com/cluj-school-of-ai/python-environments-management-in-anaconda-navigator-ad2f0741eba7">Python Environments Management in Anaconda Navigator</a>. Creating a specialized Python environment is not required, but it is good practice. But if you’re going to use Python for nothing else, you can probably skip this step.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">What is a virtual environment? </p>
+<p>It’s a tool that keeps dependencies required for different projects separate by creating isolated python virtual environments for them. This is one of the most important tools Python developers use. (TODO add GeekforGeek reference) See <a class="reference external" href="https://www.geeksforgeeks.org/python-virtual-environment/">Python Virtual Environment</a> for more detals.</p>
+</aside>
+</section>
+<section id="step-2-install-the-required-packagesopen-a-windows-terminal-or-a-terminal-by-launching-cmd-exe-from-anaconda-navigator">
+<h2>Step 2. Install the Required PackagesOpen a Windows terminal (or a terminal by launching CMD.exe from Anaconda Navigator.<a class="headerlink" href="#step-2-install-the-required-packagesopen-a-windows-terminal-or-a-terminal-by-launching-cmd-exe-from-anaconda-navigator" title="Permalink to this heading">#</a></h2>
+<p><strong>Install Jupyter-book</strong> which converts markdown and Jupyter-notebook files into HTML.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+pip</label><div class="sd-tab-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>jupyter-book
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+conda</label><div class="sd-tab-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>jupyter-book
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title">Pip in Conda</p>
+<p>Want to use pip and Anaconda?</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>anaconda<span class="w"> </span>pip
+</pre></div>
+</div>
+<p>Now you can ‘pip’ in conda.</p>
+</aside>
+<p><strong>Install git</strong> (it should already be installed) so you can connect your local files to a GitHub repository.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-2">
+pip</label><div class="sd-tab-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>python-git
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-3">
+conda</label><div class="sd-tab-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>anaconda<span class="w"> </span>git
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Install ghp-import</strong> which will post your HTML files from your GitHub repository to the web.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-4">
+pip</label><div class="sd-tab-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>ghp-import
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-5">
+conda</label><div class="sd-tab-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>ghp-import
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title">Adding cool stuff</p>
+<p>Check out all the cool UI stuff you can do: <a class="reference external" href="https://jupyterbook.org/en/stable/content/components.html#components-tabs">JupyterBook UI elements</a>.</p>
+</aside>
+</section>
+<section id="step-3-create-a-jupyter-book">
+<h2>Step 3. Create a Jupyter-Book<a class="headerlink" href="#step-3-create-a-jupyter-book" title="Permalink to this heading">#</a></h2>
+<p>Create a sample book by going to the directory and running the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>jupyter-book<span class="w"> </span>create<span class="w"> </span>mynewbook/
+</pre></div>
+</div>
+<p>Where ‘mynewbook/’ is the name of the folder you want your Jupyter-book and all its source files to live (it will create the folder).</p>
+</section>
+<section id="step-4-add-some-content">
+<h2>Step 4. Add some content!<a class="headerlink" href="#step-4-add-some-content" title="Permalink to this heading">#</a></h2>
+<p>Your two main choices for adding content are  Markdown (.md) and Jupyter Notebook (.ipynb) files. The former is easier and great for most stuff. The latter is less easy but very flexible.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The sample book created in step 3 includes both Markdown and Jupyter files.</p>
+</div>
+<p>Some Markdown editor options:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stackedit.io/app#">online editor</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/Docs/languages/markdown">Visual Studio Code</a></p></li>
+<li><p><a class="reference external" href="https://typora.io/">typora</a></p></li>
+</ul>
+<p>I use Visual Studio.</p>
+</section>
+<section id="step-5-turn-your-markdown-jupyter-files-into-html">
+<h2>Step 5. Turn your Markdown/Jupyter files into HTML.<a class="headerlink" href="#step-5-turn-your-markdown-jupyter-files-into-html" title="Permalink to this heading">#</a></h2>
+<p>This is why we need jupyter-book. Go to folder where your jupyter-book folder lives and type:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>jupyter-book<span class="w"> </span>build<span class="w"> </span>mynewbook
+</pre></div>
+</div>
+<p>And that’s it. You now have the web files. After building, you’ll be provided with a local link. Copy and paste the link into your browser of choice to check it out.</p>
+</section>
+<section id="step-6-move-your-web-files-to-the-web">
+<h2>Step 6. Move Your Web files to the Web!<a class="headerlink" href="#step-6-move-your-web-files-to-the-web" title="Permalink to this heading">#</a></h2>
+<p>You can put your web files wherever you like. I’ll use GitHub.</p>
+<ol class="arabic simple">
+<li><p>Go to your GitHub account.</p></li>
+<li><p>Create a repository.</p></li>
+<li><p>Clone the repository to a local directory -this will be the directory linked to GitHub (use a different one than above unless you want to copy over it).</p></li>
+<li><p>Copy your book into the local repo clone.</p></li>
+</ol>
+<aside class="margin sidebar">
+<p class="sidebar-title">Jupyter Docs</p>
+<p>See the <a class="reference external" href="https://jupyterbook.org/en/stable/start/publish.html">jupyter-book documentation</a> for more details.</p>
+</aside>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>directorywhereyouwantittobe
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;my-org&gt;/&lt;my-repository-name&gt;
+</pre></div>
+</div>
+<p>For example,</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>github_book_repo
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ashejim/examplebook/
+</pre></div>
+</div>
+<p>Now copy your built Jupyter book files into this new folder.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>What! You don’t have a GitHub account? Well getting one is free and easy. As long as its public, your repos and webpages will also be free.</p>
+</div>
+<p>A GitHub repository is a great place to put all kinds of stuff.</p>
+</section>
+<section id="step-7-sync-your-local-repo-to-the-github-repository">
+<h2>Step 7. Sync your local repo to the GitHub repository.<a class="headerlink" href="#step-7-sync-your-local-repo-to-the-github-repository" title="Permalink to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>directorywhereyouwantittobe/mynewbook
+git<span class="w"> </span>add<span class="w"> </span>./*
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;a message is optional, but helpful.&quot;</span>
+git<span class="w"> </span>push
+</pre></div>
+</div>
+</section>
+<section id="step-8-sync-your-book-to-a-gitpage">
+<h2>Step 8. Sync your book to a GitPage.<a class="headerlink" href="#step-8-sync-your-book-to-a-gitpage" title="Permalink to this heading">#</a></h2>
+<p>In the same folder:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ghp-import<span class="w"> </span>-n<span class="w"> </span>-p<span class="w"> </span>-f<span class="w"> </span>_build/html
+</pre></div>
+</div>
+<p>Wait a few minutes and go to:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>https://&lt;user&gt;.github.io/&lt;myonlinebook&gt;/
+</pre></div>
+</div>
+<p>(you can copy and paste the new site name from the terminal output.)</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">GitHub Pages Docs</p>
+<p>See the <a class="reference external" href="https://docs.github.com/en/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site">Github Pages Doc</a> for more (and better) details.</p>
+</aside>
+<p>Congratulations! You have a website!</p>
+</section>
+<section id="edit-your-page">
+<h2>Edit your page<a class="headerlink" href="#edit-your-page" title="Permalink to this heading">#</a></h2>
+<p>some change
+Hey, here’s a <em><strong>mistake.</strong></em></p>
+<p>bullets points</p>
+<ul class="simple">
+<li><p>ggg</p></li>
+<li><p>fff</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p><span class="xref myst">Google</span></p></li>
+<li><p>numbering stuff.</p></li>
+</ol>
+<p>Add links</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>[<span class="nt">Google</span>](<span class="na">google.com</span>)
+</pre></div>
+</div>
+</section>
+<section id="headings">
+<h2>Headings<a class="headerlink" href="#headings" title="Permalink to this heading">#</a></h2>
+<p>Here’s a link to a <a class="reference external" href="https://wgu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=8bb97182-1e41-4b6f-9218-ad9201579ada&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=true&amp;interactivity=all">video</a></p>
+<p>Here’s an embedded video:</p>
+<iframe 
+    src="https://wgu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=8bb97182-1e41-4b6f-9218-ad9201579ada&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" 
+    title="C964 Overview" 
+    width="640px"
+    height="360px"
+    style="border: 1px solid #464646;" 
+    allowfullscreen allow="autoplay"
+>
+</iframe>
+<p>The html code can be obtained through Panopto’s editing page:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">iframe</span> 
+    <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://wgu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=8bb97182-1e41-4b6f-9218-ad9201579ada&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=true&amp;interactivity=all&quot;</span> 
+    <span class="na">title</span><span class="o">=</span><span class="s">&quot;C964 Overview&quot;</span> 
+    <span class="na">width</span><span class="o">=</span><span class="s">&quot;640px&quot;</span>
+    <span class="na">height</span><span class="o">=</span><span class="s">&quot;360px&quot;</span>
+    <span class="na">style</span><span class="o">=</span><span class="s">&quot;border: 1px solid #464646;&quot;</span> 
+    <span class="na">allowfullscreen</span> <span class="na">allow</span><span class="o">=</span><span class="s">&quot;autoplay&quot;</span>
+<span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./.history"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-need-to-get-started">What you need to get started…</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-getting-python">Step 1. Getting Python.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-the-required-packagesopen-a-windows-terminal-or-a-terminal-by-launching-cmd-exe-from-anaconda-navigator">Step 2. Install the Required PackagesOpen a Windows terminal (or a terminal by launching CMD.exe from Anaconda Navigator.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-jupyter-book">Step 3. Create a Jupyter-Book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-add-some-content">Step 4. Add some content!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-turn-your-markdown-jupyter-files-into-html">Step 5. Turn your Markdown/Jupyter files into HTML.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-move-your-web-files-to-the-web">Step 6. Move Your Web files to the Web!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-sync-your-local-repo-to-the-github-repository">Step 7. Sync your local repo to the GitHub repository.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-sync-your-book-to-a-gitpage">Step 8. Sync your book to a GitPage.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-your-page">Edit your page</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#headings">Headings</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr. Jim Ashe
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
