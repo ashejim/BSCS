@@ -3,7 +3,7 @@
 Welcome! One of my several (and favorite) stops at WGU was the BSCS team. During my time there, we built a collection of supplementary resources. As most of these resoruces were stored in Google, they became broken when WGU moved from Google to MS services. To preserve student access to these resources, I built this little. Please let me know if anything needs to be added.
 
 :::{warning}
-I no longer support C949-C952. As such, this is *not* a complete repository of all resources. Reach out to your assigned course instructor, to ensure you get everything you need.
+I no longer support the courses. As such, this is *not* a complete repository of all resources. Reach out to your assigned course instructor, to ensure you get everything you need.
 :::
 
 ::::{card-carousel} 5
@@ -15,7 +15,7 @@ I no longer support C949-C952. As such, this is *not* a complete repository of a
 :class-header: bg-light text-center
 :link: ./C949.html
 
-**C949**
+**Data Structures & Algorithms**
 ^^^
 ```{image} ./url_images/big_O_image.png
 :alt: Graph showing the growth of functions as $n\righarrow \infty$. Functions growing faster to slower are $c^n$ (an almost vertical line), $c \cdot n^{10}$, $c \cdot n^{2}$, $n \log_{c}n$, $c \cdot n$, $\log_{c}n, and $c$ (a horizontal line) 
@@ -33,14 +33,14 @@ C949 {fas}`arrow-right`
 :class-header: bg-light text-center
 :link: ./C950.html
 
-**C950**
+**Data Structures & Algorithms II**
 ^^^
 ```{image} ./url_images/tsp_xk_cd_cropped.png
 ```
 
 Data Structures & Algorithms I
 +++
-C950 {fas}`arrow-right`
+Go to page {fas}`arrow-right`
 :::
 
 :::{card}
@@ -50,14 +50,14 @@ C950 {fas}`arrow-right`
 :class-header: bg-light text-center
 :link: ./C951.html
 
-**C951**
+**Intro to AI**
 ^^^
 ```{image} ./url_images/hal_like_image_cropped.jpg
 ```
 
 Introduction to Artificial Intelligence
 +++
-Task 2 details {fas}`arrow-right`
+Go to page {fas}`arrow-right`
 :::
 
 :::{card}
@@ -67,14 +67,14 @@ Task 2 details {fas}`arrow-right`
 :class-header: bg-light text-center
 :link: ./C952.html
 
-**C952**
+**Computer Architecture**
 ^^^
 ```{image} ./url_images/c952_CA_map_cropped.png
 ```
 
 Computer Architecture
 +++
-C952 {fas}`arrow-right`
+Go to page {fas}`arrow-right`
 :::
 
 :::{card}
@@ -84,14 +84,14 @@ C952 {fas}`arrow-right`
 :class-header: bg-light text-center
 :link: https://ashejim.github.io/C964/intro.html
 
-**C964**
+**Capstone**
 ^^^
 ```{image} ./url_images/3d_regression_image_cropped.png
 ```
 
 BSCS Capsonte
 +++
-C964 {fas}`arrow-right`
+Go to page {fas}`arrow-right`
 :::
 
 ::::
