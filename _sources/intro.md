@@ -23,7 +23,7 @@ I no longer support the courses. As such, this is *not* a complete repository of
 
 Data Structures & Algorithms I
 +++
-C949 {fas}`arrow-right`
+Go to page {fas}`arrow-right`
 :::
 
 :::{card}
