@@ -1,9 +1,9 @@
-# Welcome to BSCS archive Site!
+# Welcome to my CS archive Site!
 
-Welcome! One of my several (and favorite) stops at WGU was the BSCS team. During my time there, we built a collection of supplementary resources. As most of these resoruces were stored in Google, they became broken when WGU moved from Google to MS services. To preserve student access to these resources, I built this little. Please let me know if anything needs to be added.
+Welcome! One of my several (and favorite) stops at WGU was the BSCS team. During my time there, we built a collection of supplementary resources. As most of these resoruces were stored in Google, they became broken when WGU moved from Google to MS services. To preserve student access to these resources, I built this little site. Please let me know if anything needs to be added.
 
 :::{warning}
-I no longer support the courses. As such, this is *not* a complete repository of all resources. Reach out to your assigned course instructor, to ensure you get everything you need.
+I no longer support these courses. As such, this is *not* a complete nor current repository of all resources. Reach out to your assigned course instructor, to ensure you get everything you need.
 :::
 
 ::::{card-carousel} 5
