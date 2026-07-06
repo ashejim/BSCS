@@ -1,0 +1,353 @@
+%%% Jim Ashe (jim.ashe@wgu.edu; x4209)%%%%
+\documentclass{exam}
+\usepackage{WGU_worksheet_preamble}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%header%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headrule
+\header{ 
+    \href{mailto:matt.alexander@wgu.edu?subject=C960: Big-O worksheet}{Dr.\,Matt Alexander}, 
+    \href{mailto:joshua.bilbrey@wgu.edu?subject=C960: Big-O worksheet}{Dr.\,Josh Bilbrey}, and
+    \href{mailto:malcolm.rupert@wgu.edu?subject=C960: Big-O worksheet}{Dr.\,Malcom Rupert}
+    \\ \textbf{C960: Discrete Probability}}
+{Practice Problems}
+{\href{https://docs.google.com/document/d/17cwOMXdEHx8Gxk_PSTrZKbIpZP9iikU3quXve2d_nvI/edit}{\includegraphics[scale=.65]{timetradeMC.png}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lfoot{\footnotesize Suggestions or errors?\\ Contact the author:   \href{mailto:jim.ashe@wgu.edu?subject=C960: Big-O worksheet}{Dr.\,Jim Ashe}.}
+\cfoot[]{Page \thepage\ of \numpages}
+\rfoot{\today}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\itemSpace}{36pt} %adjusts spacing between questions
+
+\printanswers
+\shadedsolutions
+\colorlet{SolutionColor}{lightBlueWGU!15!white}
+
+\begin{document}
+
+\section*{Asymptotic behavior and Big-$\mathcal{O}$ Notation}
+
+\subsection*{Clarification of notation}
+The following statements all mean the same thing:
+    \begin{itemize}
+        \item[] “$f(x)$ is $\mathcal{O}(g(x))$” OR  
+        \item[] “$f(x)$ is of $\mathcal{O}(g(x))$” OR 
+        \item[] “$f(x)=\mathcal{O}(g(x))$” OR
+        \item[] “$f(x)\in \mathcal{O}(g(x))$” 
+    \end{itemize}
+    
+$\mathcal{O}(g(x))$ is a collection of functions (i.e. a set) so what we should say is $f(x)\in \mathcal{O}(g(x))$, but $f(x)=\mathcal{O}(g(x))$” is commonly used. This can be confusing since $\mathcal{O}(n)=\mathcal{O}(n^{2})$ but $\mathcal{O}(n^{2})\neq \mathcal{O}(n)$!!
+
+See this interesting thread on StackExchange \href{https://math.stackexchange.com/questions/2066004/big-o-notation-is-element-of-or-is-equal}{Big O Notation “is element of” or “is equal”}. Note the Wiki cites \href{https://en.wikipedia.org/wiki/Donald_Knuth}{Donald Knuth}.
+
+\subsection*{Big-$\mathcal{O}$ classification of common functions}
+Order of Asymptotic Behaviour. Remember that these are sets. So while it might be said that $2n+3$ “is” $\mathcal{O}(n)$; actually it’s an element in that set: $2n+3\in \mathcal{O}(n) \subset \mathcal{O}(n^{2})\subset \dots$.
+
+Here's a list of some functions listed from fast to slow.
+\begin{itemize}
+    \item[] $\mathcal{O}(1)$ \textbf{Constant}
+    \item[] $\mathcal{O}(\log(n))$ \textbf{Logarithmic}. 
+    \begin{itemize}
+        \item[] Ignore Log bases: $\log_{10}(n)=\log_{2}(n)=\log(n)$
+        \item[] Same growth as $\log(n^{k})=k\log(n)$ 
+    \end{itemize}
+    
+    \item[] $\mathcal{O}(\log^{c}(2n))$ \textbf{Polylogarithmic}
+    \begin{itemize}
+        \item[] Don't forget that: $\log^{c}x=(\log x)^{c}$.
+    \end{itemize}
+    \item[] $\mathcal{O}(n)$ \textbf{Linear}
+    \item[] $\mathcal{O}(n\log(2n))$ \textbf{Linearithmic/Loglinear}
+    \item[] $\mathcal{O}(n^{2})$ \textbf{Quadratic}
+    \item[] $\mathcal{O}(n^{2}\log(2n))$
+    \item[] $\mathcal{O}(n^{3})$ \textbf{Polynomial}
+    \item[] $\mathcal{O}(2^{n})$ \textbf{Exponential} 
+    \item[] $\mathcal{O}(n!)$
+\end{itemize}
+
+\newpage
+\subsection*{Big-$\mathcal{O}$ problems}
+\begin{questions}
+\setlength\itemsep{\itemSpace} %set length above question. Needs to be set for each question environment
+\question Order each function according to their growth from fastest to slowest. 
+    \begin{parts}
+        \item[(a)] $n\cdot \log{2}n$
+        \item[(b)] $\log_{10}n$
+        \item[(c)] $10^{n}$
+        \item[(d)] $n^{10}$
+        \item[(e)] $10n$
+        \item[(f)] $100$
+        \item[(g)] $n^{2}$
+    \end{parts}
+    \begin{solution}
+        \begin{multicols}{2}
+        \begin{parts}
+            \item[(f)] $100$
+            \item[(b)] $\log_{10}n$
+            \item[(a)] $n\cdot \log{2}n$
+            \item[(e)] $10n$
+            \item[(g)] $n^{2}$
+            \item[(d)] $n^{10}$
+            \item[(c)] $10^{n}$
+        \end{parts}
+        \columnbreak
+            \begin{tikzpicture} 
+            \begin{axis}[height=6cm, 
+            	width=6cm,scale=1.0,
+            	axis lines=middle,
+            	xticklabels={,,}, yticklabels={,,},
+            	axis line style={-latex}, 
+            	xlabel={$n\rightarrow \infty$},
+            	ylabel={$f(n)$},             	
+            	x label style={at={(axis description cs:0.5,-0.05)},anchor=north},
+            	y label style={at={(axis description cs:-0.125,.5)},anchor=south},
+            	clip=false, %doesn't clip outside graph
+            	%domain=0:100,
+            	ymin=0,xmin=0,
+            	ymax = 150,xmax=150
+            	]
+            	\addplot[teal, thick, samples=10, domain=0:18.835]{1.3^x} node[above]{$c^{n}$};
+            	\addplot[Magenta, thick, domain=0:52.1936]{.25*x^1.6} node[above]{$c\cdot n^{10}$};
+            	\addplot[blue, thick, domain=0:91.8315]{.25*x^1.4} node[right]{$c\cdot n^{2}$};
+            	\addplot[RedOrange, thick, domain=0:140]{.13*(x+1)*ln(x+1)/ln(2)} node[right]{$n\log_{c}n$};
+            	\addplot[red, thick, domain=0:140] {.5*x} node[right]{$c\cdot n$};
+            	\addplot[purple, thick, domain=0:140]{3.5*ln(x)/ln(2)} node[right]{$\log_{c}n$};
+            	\addplot[OliveGreen, thick, domain=0:140]{10} node[right]{$c$};
+            \end{axis}
+            \end{tikzpicture}
+        \end{multicols}
+    \end{solution}
+
+
+\question he provided expressions are the processing time of an algorithm for problems of size $n$. For each expression, find the \textit{lowest possible} Big-$\mathcal{O}$ complexity stated in simplest form. 
+\begin{parts}
+        \begin{solution}
+            Given two real functions $f(x)$ and $g(x)$ such that $g(x)$ is strictly positive for sufficiently large $x$, we say that $$f(x)\in \mathcal{O}(g(X))$$ 
+            if and only if there exist $M,x_{0}\in \mathbb{R}$ such that 
+            $$|f(x)|\leq M\cdot g(x)$$ 
+            for all $x_{0}\leq x$
+            
+            This formal definition of Big-$\mathcal{O}$ notation is not included in the text. We don't  use it directly. Just remember that $f(x)$ is $\mathcal{O}(g(x))$ is bound from above by $M\cdot g(x)$, i.e., $\mathcal{O}(g(x))$ is an upper bound.
+        \end{solution}
+    \part $100n^{2}+0.0002n^{3}+10,000$
+        \begin{solution}
+            From the definition above, we can see that coefficients are ignored. As $n\rightarrow \infty$, they have little effect. So we need only compare $n^{2}$ and $n^{3}$. Since $n^{3}=n\cdot n^{2}$, we have $\mathcal{O}(n^{2})\subset \mathcal{O}(n^{3})$ and our answer is:
+            $$\mathcal{O}(n^{3})$$ 
+        \end{solution}
+    \part $20n+2n\log_{10}n+30$
+        \begin{solution}
+            $\mathcal{O}(n\log_{2}n)$ To find this we use the following property:\\
+            \[
+            \text{If } f\in \mathcal{O}(f') \text{and } g\in \mathcal{O}(g') \text{ then }
+            f\cdot g\in \mathcal{O}(f\cdot g)
+            \]
+            So for the product of two functions we can evaluate the factors. \\
+            $2n\in \mathcal{O}(n)$ and $\log_{10}n\in \mathcal{O}(\log_{2}n)$. So then our answer is:\\
+            $$\mathcal{O}(n\log_n)$$
+            As a matter of convention, the base is often excluded, however $\mathcal{O}(\log_{2}n)$ is sometimes written.  
+            
+            Why do we ignore the base in logs but not exponents? Recall that $$\log_{2}n=\frac{\log_{10}n}{\log_{10}2}$$ So then 
+            $$\log_{10}n\leq (\log_{10}2)\log_{2}n$$ for all $n$. Here our $M$ is $\log_{10}2$. The situation is different for the bases of \textit{exponential} functions, but remember that logs are the inverses of exponential functions. 
+        \end{solution}
+    \part $\log_{10}5+\log_{2}7$
+        \begin{solution}
+            Both terms are both constants. So the answer is: $$\mathcal{O}(1)$$
+        \end{solution}
+    \part $5n+\sqrt{n}$
+        \begin{solution}
+            $\sqrt{n}=n^{\nicefrac{1}{2}}$ and $5n^{1}=5n^{\nicefrac{1}{2}}n^{\nicefrac{1}{2}}$. Now we can see that 
+            $\mathcal{O}(\sqrt{n})\subset \mathcal{O}(n)$. So the answer is: $$\mathcal{O}(n)$$
+        \end{solution}
+    \part $0.01(2^{n})+n^{5}+\ln n$
+        \begin{solution}
+            $\mathcal{O}(\log n)\subset \mathcal{O}(n^{a})\subset \mathcal{O}(b^{n})$ for $a,b\in \mathbb{R}$ and $b>1$. That is, an exponential function is slower than a polynomial which is slower than a $\log$. So the answer is 
+            $$\mathcal{O}(2^{n})$$
+            
+            To see that $\mathcal{O}(n^{a})\subset \mathcal{O}(b^{n})$, note that $\log x < \log y \iff x<y$. So then, 
+            $$\log n^{a}=a\log n< n\log b=\log b^{n}$$ for sufficiently large $n$ as we know that $\mathcal{O}(\log n)\subset \mathcal{O}(n)$
+            
+        \end{solution}
+    \part $100\cdot 4^{n}+200\cdot 3^{n}$
+        \begin{solution}
+            The answer is:
+            $$\mathcal{O}(4^{n})$$
+            The text incorrectly states that \textit{"the base of the exponent is irrelevant"} in lesson 1.13. $2^{n}\leq 3^{n}$ for all $n$, but there is no constant $M$ such that $3^{n}\leq M\cdot 2^{n}$ for all $n$. If there was then there would be an integer $x>0$ such that $M<3^{x}$, and then $3^{x}\cdot 3^{n-x}\leq 3^{x}\cdot 2^{n-x}$ for sufficiently large $n$. Which is a contradiction. 
+        \end{solution}
+\end{parts}
+
+
+\question $f(x)=6x\log_{4} x$ is which of the following? \textbf{Mark all that apply}.
+
+    \begin{oneparcheckboxes}
+        \choice $\mathcal{O}(6)$
+        \choice $\mathcal{O}(\log x)$
+        \choice $\mathcal{O}(6\log x)$
+        \CorrectChoice  $\mathcal{O}(x\log x)$
+        \CorrectChoice  $\mathcal{O}(x^{2})$
+        \CorrectChoice $\mathcal{O}(2^{x})$
+    \end{oneparcheckboxes}
+    \begin{solution}
+        Big-$\mathcal{O}$ is an \textit{upper bound}. So if $f(x)$ is no slower than $x\log x$ then it is also no slower than $x^{2}$ and $2^{x}$. In set notation, $$f(x)\in \mathcal{O}(x\log x)\subset \mathcal{O}(x^{2}) \subset \mathcal{O}(2^{x})$$ 
+    \end{solution}
+
+ 
+\question Let $h(x)=6x^{4}+2x^{3}+x+100$. Which of the following is true? \textbf{Mark all that apply}. 
+
+    \begin{oneparcheckboxes}
+        \CorrectChoice $h(x)\in \mathcal{O}(x^{4})$
+        \CorrectChoice $h(x)\in \Theta(x^{4})$
+        \CorrectChoice $h(x)\in \Omega(x^{4})$
+    \end{oneparcheckboxes}
+    \begin{solution}
+        
+        $\mathcal{O}(x^{4})$ is an \textit{upper bound}.
+        $\Omega(x^{4})$ is a \textit{lower bound}.
+        So then $h(x)$ is also $\Theta(x^{4})$, a \textit{tight bound}.
+    \end{solution}
+
+
+\question Let $h(x)=6\log_{2}x$. Which of the following is true? \textbf{Mark all that apply}. 
+
+    \begin{oneparcheckboxes}
+        \CorrectChoice $h(x)\in \mathcal{O}(4x^{2})$
+        \choice $h(x)\in \Theta(4x^{2})$
+        \choice $h(x)\in \Omega(4x^{2})$
+    \end{oneparcheckboxes}
+    \begin{solution}
+        $6\log_{2}x$ is faster than $4x^{2}$. So then $h(x)\in \mathcal{O}(4x^{2})$ and $h(x) \notin \Omega(4x^{2})$. Which means $h(x) \notin \Theta(4x^{2}$
+    \end{solution}
+
+
+\question Let $f(x)=x^{2}\log_{3}x$. Which of the following is true? \textbf{Mark all that apply}.
+\label{ques:logBases}
+
+    \begin{oneparcheckboxes}
+        \choice $f(x)\in \mathcal{O}(2x\log_{10}x)$
+        \choice $f(x)\in \Theta(2x\log_{10}x)$
+        \CorrectChoice $f(x)\in \Omega(2x\log_{10}x)$
+    \end{oneparcheckboxes}
+    \begin{solution}
+       Recall that the base of a logarithmic function can be ignored. So $\log_{10}x$ and $\log_{3}x)$ have the same asymptotic behavior, and we really only need to evaluate $x^{2}$ and $2x$. We know that $x^{2}\notin \mathcal{O}(2x)$, and so neither can it be in $\Theta(2x)$ which gives us our answer.
+    \end{solution}
+
+
+\question Let $g(x)=2x\log_{10}x$. Which of the following is true? \textbf{Mark all that apply}. 
+
+    \begin{oneparcheckboxes}
+        \CorrectChoice $g(x)\in \mathcal{O}(x^{2}\log_{3}x)$
+        \choice $g(x)\in \Theta(x^{2}\log_{3}x)$
+        \choice $g(x)\in \Omega(x^{2}\log_{3}x)$
+    \end{oneparcheckboxes}
+    
+    \begin{solution}
+        This is similar to question~\ref{ques:logBases}, only here $g(x)$ has a \textit{faster} factor, $2x$. So then $g(x)\in \mathcal{O}(x^{2}\log_{3}x)$ (it's faster) and $g(x)\notin \Omega(x^{2}\log_{3}x)\Rightarrow g(x)\in \Theta(x^{2}\log_{3}x)$.
+    \end{solution}
+
+\question Using the provided pseudo-code, find the worst case performance in Big-$\mathcal{O}$ notation.
+        \begin{algorithm}[H]
+        \caption{Some messy pseudo-code}\label{algor1}
+            \begin{algorithmic}[1]
+                \Procedure{SomeProcedure}{}
+                    \For{i=1 and 1$<$=n}
+                        \State j=1
+                        \While{j$<$n}
+                            \State j=j+2
+                        \EndWhile
+                    \EndFor
+                \EndProcedure
+            \end{algorithmic}
+        \end{algorithm}
+    \begin{choices}
+        \choice $\mathcal{O}(\log n)$
+        \choice $\mathcal{O}(n\log n)$
+        \CorrectChoice $\mathcal{O}(n^{2})$
+        \choice $\mathcal{O}(n)$
+    \end{choices}
+
+\question Using the provided pseudo-code, find the worst case performance in Big-$\mathcal{O}$ notation.
+        \begin{algorithm}[H]
+        \caption{Some more messy pseudocode}\label{algor2}
+            \begin{algorithmic}[1]
+                \Procedure{SomeProcedure2}{}
+                    \State j=0
+                    \For{i=o; i$<$n; i++}
+                        \State j=i+j
+                    \EndFor
+                \EndProcedure
+            \end{algorithmic}
+        \end{algorithm}
+    \begin{choices}
+        \choice $\mathcal{O}(\log n)$
+        \choice $\mathcal{O}(n\log n)$
+        \choice $\mathcal{O}(n^{2})$
+        \CorrectChoice $\mathcal{O}(n)$
+    \end{choices}
+
+
+\question Using the provided pseudo-code, find the worst case performance in Big-$\mathcal{O}$ notation. Assume we know that \textbf{someMethod(n)} is $\mathcal{O}(\log n)$.
+        \begin{algorithm}[H]
+        \caption{Some pseudocode with a method in it}\label{algor3}
+            \begin{algorithmic}[1] % The number tells where the line numbering should start
+                \Procedure{SomeProcedure3}{}
+                    \State j=0
+                    \For{i=o; i$<$n; i++}
+                        \State j=someMethod(n)
+                    \EndFor
+                \EndProcedure
+            \end{algorithmic}
+        \end{algorithm}
+    \begin{choices}
+        \choice $\mathcal{O}(\log n)$
+        \CorrectChoice $\mathcal{O}(n\log n)$
+        \choice $\mathcal{O}(n^{2})$
+        \choice $\mathcal{O}(n)$
+    \end{choices}
+
+
+\question Using the provided pseudo-code, find the worst case performance in Big-$\mathcal{O}$ notation.
+        \begin{algorithm}[H]
+        \caption{Some more messy pseudocode}\label{algor4}
+            \begin{algorithmic}[1]
+                \Procedure{SomeProcedure4}{}
+                    \While {n$>1$}
+                        \State n=n/2
+                    \EndWhile
+                \EndProcedure
+            \end{algorithmic}
+        \end{algorithm}
+    \begin{choices}
+        \CorrectChoice $\mathcal{O}(\log n)$
+        \choice $\mathcal{O}(n\log n)$
+        \choice $\mathcal{O}(n^{2})$
+        \choice $\mathcal{O}(n)$
+    \end{choices}
+
+
+\question Using the provided pseudo-code, find the worst case performance in Big-$\mathcal{O}$ notation.
+    \begin{algorithm}[H]
+    \caption{Euclid’s algorithm}
+        \label{euclid}
+        \begin{algorithmic}[1] % The number tells where the line numbering should start
+            \Procedure{Euclid}{$a,b$} \Comment{The g.c.d. of a and b}
+                \State $r\gets a \bmod b$
+                \While{$r\not=0$} \Comment{We have the answer if r is 0}
+                    \State $a \gets b$
+                    \State $b \gets r$
+                    \State $r \gets a \bmod b$
+                \EndWhile\label{euclidendwhile}
+                \State \textbf{return} $b$\Comment{The gcd is b}
+            \EndProcedure
+        \end{algorithmic}
+    \end{algorithm}
+    \begin{choices}
+        \choice $\mathcal{O}(\log n)$
+        \choice $\mathcal{O}(n\log n)$
+        \choice $\mathcal{O}(n^{2})$
+        \CorrectChoice $\mathcal{O}(n)$
+    \end{choices}
+
+
+\end{questions}
+
+
+\end{document}

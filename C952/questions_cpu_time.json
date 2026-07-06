@@ -1,0 +1,127 @@
+[
+    {
+        "question": "Choose ALL that apply. How can the CPU performance of a program be improved?",
+        "type": "many_choice",
+        "answers": [
+            {"answer": "Decreasing the clock cycles per instruction (CPI).", "correct": true, "feedback": "Yes. CPU time = IC x CPI / clock rate, so lowering CPI reduces CPU time."},
+            {"answer": "Decreasing the throughput of the processor.", "correct": false, "feedback": "No. Lower throughput means less work per unit time - worse performance."},
+            {"answer": "Increasing the number of clock cycles.", "correct": false, "feedback": "No. More clock cycles means more time."},
+            {"answer": "Decreasing the response time for disk access.", "correct": true, "feedback": "Yes. Faster disk access lowers the program's overall execution time."},
+            {"answer": "Decreasing the instruction count.", "correct": true, "feedback": "Yes. Fewer instructions means less CPU time (CPU time = IC x CPI / clock rate)."},
+            {"answer": "Decreasing the clock rate.", "correct": false, "feedback": "No. A lower clock rate means each second delivers fewer cycles - worse performance."},
+            {"answer": "Decreasing the length of the clock cycle.", "correct": true, "feedback": "Yes. A shorter clock cycle means a higher clock rate, which reduces CPU time."}
+        ]
+    },
+    {
+        "question": "A program with 7000e9 instructions runs alone on a CPU. The CPU clock rate is 6e9 cycles per second (6 GHz). The average cycles per instruction is 3. How many seconds is the CPU performance for the task?",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "0.003", "correct": false, "feedback": "You may have inverted the ratio. CPU time = IC x CPI / clock rate."},
+            {"answer": "350.0", "correct": false, "feedback": "Re-check the powers of ten."},
+            {"answer": "126000", "correct": false, "feedback": "That multiplies by the clock rate instead of dividing."},
+            {"answer": "0.0", "correct": false, "feedback": "The result is not near zero; re-check the exponents."},
+            {"answer": "3500.0", "correct": true, "feedback": "Correct. CPU time $= \\dfrac{IC \\times CPI}{f} = \\dfrac{7000\\text{e}9 \\times 3}{6\\text{e}9} = 3500$ s."}
+        ]
+    },
+    {
+        "question": "A program with 4000e14 instructions runs alone on a CPU. The CPU clock rate is 2e9 cycles per second (2 GHz). The average cycles per instruction is 8. How many seconds is the CPU performance for the task?",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "0.0", "correct": false, "feedback": "The result is not near zero; re-check the exponents."},
+            {"answer": "1600000000.0", "correct": true, "feedback": "Correct. CPU time $= \\dfrac{IC \\times CPI}{f} = \\dfrac{4000\\text{e}14 \\times 8}{2\\text{e}9} = 1.6\\times 10^{9}$ s."},
+            {"answer": "64000", "correct": false, "feedback": "Re-check the powers of ten."},
+            {"answer": "16000000000.0", "correct": false, "feedback": "That is 10x too large; re-check the exponents."},
+            {"answer": "0.004", "correct": false, "feedback": "You may have inverted the ratio. CPU time = IC x CPI / clock rate."}
+        ]
+    },
+    {
+        "question": "A program with 2000e9 instructions runs alone on a CPU. The CPU clock cycle time is 700e-12 seconds. The average cycles per instruction is 3. How many seconds is the CPU performance for the task?",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "0.002", "correct": false, "feedback": "You may have inverted a factor. CPU time = IC x CPI x cycle time."},
+            {"answer": "42000.0", "correct": false, "feedback": "Re-check the powers of ten."},
+            {"answer": "4200000", "correct": false, "feedback": "That is 1000x too large; re-check the exponents."},
+            {"answer": "8.571", "correct": false, "feedback": "That divides by a rate; here you are given the cycle time, so multiply."},
+            {"answer": "4200.0", "correct": true, "feedback": "Correct. CPU time $= IC \\times CPI \\times t_{cycle} = 2000\\text{e}9 \\times 3 \\times 700\\text{e}{-12} = 4200$ s."}
+        ]
+    },
+    {
+        "question": "A program with 4000e6 instructions runs alone on a CPU. The CPU clock cycle time is 800e-12 seconds. The average cycles per instruction is 2. How many seconds is the CPU performance for the task?",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "0.64", "correct": false, "feedback": "Re-check the powers of ten."},
+            {"answer": "0.4", "correct": false, "feedback": "That drops a factor; CPU time = IC x CPI x cycle time."},
+            {"answer": "6.4", "correct": true, "feedback": "Correct. CPU time $= IC \\times CPI \\times t_{cycle} = 4000\\text{e}6 \\times 2 \\times 800\\text{e}{-12} = 6.4$ s."},
+            {"answer": "1600000.0", "correct": false, "feedback": "That multiplies where it should use the small cycle time; re-check the exponents."},
+            {"answer": "0.156", "correct": false, "feedback": "You may have inverted a factor."},
+            {"answer": "0.016", "correct": false, "feedback": "Re-check the powers of ten."}
+        ]
+    },
+    {
+        "question": "A program runs alone on a CPU. The CPU clock rate is 3e9 cycles per second (3 GHz). It takes 12e15 clock cycles to complete the program. How many seconds is the CPU performance for the task?",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "36", "correct": false, "feedback": "Re-check the powers of ten."},
+            {"answer": "40000000.0", "correct": false, "feedback": "That is 10x too large; re-check the exponents."},
+            {"answer": "360", "correct": false, "feedback": "Re-check the powers of ten."},
+            {"answer": "3.6", "correct": false, "feedback": "Re-check the powers of ten."},
+            {"answer": "4000000.0", "correct": true, "feedback": "Correct. CPU time $= \\dfrac{\\text{clock cycles}}{f} = \\dfrac{12\\text{e}15}{3\\text{e}9} = 4\\times 10^{6}$ s."},
+            {"answer": "400000.0", "correct": false, "feedback": "That is 10x too small; re-check the exponents."}
+        ]
+    },
+    {
+        "question": "A program requires 7000e11 instructions to execute on a processor running at 3e9 cycles per second (3 GHz). Suppose 10% of the instructions execute in 3 cycles, 30% in 2 cycles, and 60% in one cycle. How many seconds is the CPU performance for the task?",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "35000.0", "correct": false, "feedback": "Re-check the weighted CPI and the powers of ten."},
+            {"answer": "700000.0", "correct": false, "feedback": "Re-check the weighted CPI: 0.1(3) + 0.3(2) + 0.6(1) = 1.5."},
+            {"answer": "350000.0", "correct": true, "feedback": "Correct. Weighted CPI $= 0.1(3) + 0.3(2) + 0.6(1) = 1.5$, so CPU time $= \\dfrac{7000\\text{e}11 \\times 1.5}{3\\text{e}9} = 350000$ s."},
+            {"answer": "3500000.0", "correct": false, "feedback": "That is 10x too large; re-check the exponents."},
+            {"answer": "35000000.0", "correct": false, "feedback": "That is 100x too large; re-check the exponents."}
+        ]
+    },
+    {
+        "question": "A program requires 5e9 instructions to execute on a processor running at 4 GHz with an average of 3 cycles per instruction, giving an execution time of 3.75 seconds. Which adjustment improves overall performance by approximately 125%?",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "A rate of 2 GHz and one cycle per instruction.", "correct": false, "feedback": "That gives 2.5 s, a speedup of only 1.5x (50% improvement)."},
+            {"answer": "A rate of 6 GHz and 2 cycles per instruction.", "correct": true, "feedback": "Correct. Time $= \\dfrac{5\\text{e}9 \\times 2}{6\\text{e}9} = 1.667$ s, a speedup of $3.75 / 1.667 = 2.25$x, i.e. a 125% improvement."},
+            {"answer": "A rate of 5 GHz and 7 cycles per instruction.", "correct": false, "feedback": "That gives 7 s - slower than the original."},
+            {"answer": "A rate of 3 GHz and 5 cycles per instruction.", "correct": false, "feedback": "That gives about 8.3 s - slower than the original."}
+        ]
+    },
+    {
+        "question": "A program with 7000e12 instructions runs alone on a CPU. The CPU clock rate is 4e9 cycles per second (4 GHz) and the average cycles per instruction is 4. Suppose the clock rate is increased to 8 GHz. Approximately, what is the overall performance improvement?",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "70000000.0", "correct": false, "feedback": "That is a raw cycle count, not a percentage improvement."},
+            {"answer": "500.0%", "correct": false, "feedback": "Doubling the clock rate does not give a 500% improvement."},
+            {"answer": "1000.0%", "correct": false, "feedback": "Doubling the clock rate does not give a 1000% improvement."},
+            {"answer": "7000000.0", "correct": false, "feedback": "That is a raw cycle count, not a percentage improvement."},
+            {"answer": "50.0%", "correct": false, "feedback": "Doubling the clock rate halves the time, which is more than a 50% improvement."},
+            {"answer": "100.0%", "correct": true, "feedback": "Correct. Doubling the clock rate (4 to 8 GHz) halves CPU time, a speedup of 2x, i.e. a 100% improvement."}
+        ]
+    },
+    {
+        "question": "A program with 2000e12 instructions runs alone on a CPU. The CPU clock rate is 2e9 cycles per second (2 GHz) and the average cycles per instruction is 5. Suppose the clock rate is increased to 6 GHz and the cycles per instruction is reduced to 4. Approximately, what is the overall performance improvement?",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "666.7%", "correct": false, "feedback": "Re-check: speedup $= \\dfrac{5/2}{4/6} = 3.75$."},
+            {"answer": "5000000.0", "correct": false, "feedback": "That is a raw value, not a percentage improvement."},
+            {"answer": "275.0%", "correct": true, "feedback": "Correct. Speedup $= \\dfrac{5/2}{4/6} = 3.75$x, i.e. a 275% improvement."},
+            {"answer": "66.67%", "correct": false, "feedback": "You may have inverted the ratio."},
+            {"answer": "2750.0%", "correct": false, "feedback": "That is 10x too large."},
+            {"answer": "50000000.0", "correct": false, "feedback": "That is a raw value, not a percentage improvement."}
+        ]
+    },
+    {
+        "question": "A program requires 6e9 instructions to execute on a processor running at 3 GHz. Suppose 10% of the instructions execute in 2 cycles, 70% in 3 cycles, and 20% in 4 cycles, giving an execution time of 6.2 seconds. Which adjustment improves overall performance by approximately 11%?",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "20% executes at 2 cycles and 80% at 3 cycles", "correct": true, "feedback": "Correct. New CPI $= 0.2(2) + 0.8(3) = 2.8$, time $= \\dfrac{6\\text{e}9 \\times 2.8}{3\\text{e}9} = 5.6$ s, a speedup of $6.2/5.6 \\approx 1.11$ (about 11%)."},
+            {"answer": "100% executes at 2 cycles", "correct": false, "feedback": "CPI = 2 gives 4 s, a speedup of about 1.55x (55%) - too much."},
+            {"answer": "100% executes at 3 cycles", "correct": false, "feedback": "CPI = 3 gives 6 s, only about a 3% improvement."},
+            {"answer": "80% executes at 2 cycles and 20% at 3 cycles", "correct": false, "feedback": "CPI = 2.2 gives 4.4 s, a speedup of about 1.41x (41%) - too much."}
+        ]
+    }
+]

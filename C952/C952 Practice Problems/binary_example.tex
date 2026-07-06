@@ -1,0 +1,24 @@
+\documentclass[varwidth,preview]{standalone}
+%\documentclass{article}
+%%You need to ENLARGE the preview image to right-click and save as png 
+\usepackage{array, mathtools}
+\usepackage{WGU_worksheet_preamble}
+
+\begin{document}
+\begin{preview}
+%%%%%%
+    \newcommand*{\carry}[1][1]{\overset{#1}}
+    \newcolumntype{B}[1]{r*{#1}{@{\,}r}}
+        \begin{figure}[]
+            \begin{equation*}
+            \begin{array}{B3}
+            & \carry 1001 & 1111 \\
+            -&0101 & 0101 \\ \hline
+            &0100 & 1010 \\
+            \end{array}
+            \vspace{-7pt}
+            \end{equation*}
+        \end{figure}
+%%%%%%%%%%%%
+\end{preview}
+\end{document}

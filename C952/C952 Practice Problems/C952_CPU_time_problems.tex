@@ -1,0 +1,185 @@
+%%% Jim Ashe (jim.ashe@wgu.edu; x4209)%%%%
+   \documentclass{exam}
+   \usepackage{WGU_worksheet_preamble}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   %%header%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \headrule
+   \header{ 
+       \href{mailto:jim.ashe@wgu.edu?subject=C952: Binary worksheet}{Dr.\,Jim Ashe}
+       \\ \textbf{C952: CPU Time Practice Problems}}
+   {Practice Problems}
+   {\href{https://www02a.timetrade.com/app/wgu-mentoring/workflows/WGU200/schedule?wfsid=16a5bb38-baba97f6-c5aaaaaa-baba97f6-00000003-biretl2gt5o9luofl8glnhopbm30lgea&locationId=course_mentoring&appointmentTypeGroupId=C952&resourceId=any}{\includegraphics[scale=.65]{timetradeMC.png}}}
+   %%note: image file is in overleaf
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \lfoot{\footnotesize Suggestions or errors?\\ Contact the author:   \href{mailto:jim.ashe@wgu.edu?subject=C952: Binary worksheet}{Dr.\,Jim Ashe}.}
+   \cfoot[]{Page \thepage\ of \numpages}
+   \rfoot{\today}
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%   \printanswers %%turns answers coloring on
+   \shadedsolutions
+  \colorlet{SolutionColor}{lightBlueWGU!15!white}
+  
+\newcommand{\itemSpace}{28pt} %adjusts spacing between questions %%for ques space adjusting
+\begin{document}
+
+% \subsection*{subsection goes here}
+\begin{questions} %%exam class begin question
+%\setlength\itemsep{\itemSpace} %set length above question. Needs to be set for each question
+\question \textbf{Choose ALL that apply. }How can the CPU performance of a program be improved?
+		\begin{choices}
+			\CorrectChoice Decreasing the clock cycles per instruction.
+			\choice Decreasing the throughput of the processor.
+			\choice Increasing the number or clock cycles
+			\CorrectChoice Decreasing the response time for disk access.
+			\CorrectChoice Decreasing the instruction count.
+			\choice Decreasing the clock rate.
+			\CorrectChoice Decreasing the length of the clock cycle
+		\end{choices}%
+\vspace{\itemSpace}
+\question \textbf{Choose the best answer.}
+        A program with $7000\mathrm{e}{9}$ instructions runs alone on a CPU. The CPU clock rate is $6\mathrm{e}{9}$ 
+        cycles per second, i.e., 6 GHz. The average cycles per instruction is 3. How many seconds is the 
+        CPU performance for the task?
+		\begin{choices}
+			\choice 0.003
+			\choice 350.0
+			\choice 126000
+			\choice 0.0
+			\choice 0.0
+			\CorrectChoice 3500.0
+		\end{choices}%
+\vspace{\itemSpace}
+\question \textbf{Choose the best answer.}
+        A program with $4000\mathrm{e}{14}$ instructions runs alone on a CPU. The CPU clock rate is $2\mathrm{e}{9}$ 
+        cycles per second, i.e., 2 GHz. The average cycles per instruction is 8. How many seconds is the 
+        CPU performance for the task?
+		\begin{choices}
+			\choice 0.0
+			\CorrectChoice 1600000000.0
+			\choice 64000
+			\choice 0.0
+			\choice 16000000000.0
+			\choice 0.004
+		\end{choices}%
+\vspace{\itemSpace}
+\question \textbf{Choose the best answer.}
+        A program with $2000\mathrm{e}{9}$ instructions runs alone on a CPU. The CPU clock cycle time is $700\mathrm{e}{-12}$. 
+        The average cycles per instruction is 3. How many seconds is the CPU performance for the task?
+		\begin{choices}
+			\choice 0.002
+			\choice 42000.0
+			\choice 4200000
+			\choice 0.0
+			\choice 8.571
+			\CorrectChoice 4200.0
+		\end{choices}%
+\vspace{\itemSpace}
+\question \textbf{Choose the best answer.}
+        A program with $4000\mathrm{e}{6}$ instructions runs alone on a CPU. The CPU clock cycle time is $800\mathrm{e}{-12}$ 
+        cycles per second. The average cycles per instruction is 2. How many seconds is the 
+        CPU performance for the task?
+		\begin{choices}
+			\choice 0.64
+			\choice 0.4
+			\CorrectChoice 6.4
+			\choice 1600000.0
+			\choice 0.156
+			\choice 0.016
+		\end{choices}%
+\vspace{\itemSpace}
+\question \textbf{Choose the best answer.}
+           A program runs alone on a CPU. The CPU clock rate is rate is 3e9 cycles per second, i.e., 3 GHz. 
+           It take 12e15 clock cycles to complete the program. How many seconds is the CPU performance for the task?
+		\begin{choices}
+			\choice 36
+			\choice 40000000.0
+			\choice 360
+			\choice 3.6
+			\CorrectChoice 4000000.0
+			\choice 400000.0
+		\end{choices}%
+\vspace{\itemSpace}
+\question \textbf{Choose the best answer.}
+        A program requires $7000\mathrm{e}{11}$ instructions to execute on a processor running at 
+        $3\mathrm{e}{9}$ cycles per second, i.e., 3 GHz.
+        Suppose that 10\% of the instructions execute in 3 cycles, 30\% in 2 cycles, and 60\% in one cycle. How many seconds is the 
+        CPU performance for the task?
+		\begin{choices}
+			\choice 35000.0
+			\choice 700000.0
+			\CorrectChoice 350000.0
+			\choice 3500000.0
+			\choice 35000000.0
+		\end{choices}%
+\vspace{\itemSpace}
+\question \textbf{Choose the best answer.}
+        A program requires $5\mathrm{e}{9}$ instructions to execute on a processor running at 4 GHz
+        with an average cycles per instruction of 3, resulting in an execution time of 3.75 seconds.
+        \\
+        Which adjustment improves overall performance approximately by 125\%?
+        
+		\begin{choices}
+			\choice A rate of 2 GHz and one cycle per instruction.
+			\CorrectChoice A rate of 6 GHz and 2 cycles per instruction.
+			\choice A rate of 5 GHz and 7 cycles per instruction.
+			\choice A rate of 3 GHz and 5 cycles per instruction.
+		\end{choices}%
+\vspace{\itemSpace}
+\question \textbf{Choose the best answer.}
+        A program with $7000\mathrm{e}{12}$ instructions runs alone on a CPU. The CPU clock rate is $4\mathrm{e}{9}$ 
+        cycles per second, i.e., 4 GHz. The average cycles per instruction is 4. Suppose that the clock rate is increased to 8 GHz. 
+        Approximately, what is the overall performance improvement?
+		\begin{choices}
+			\choice 70000000.0
+			\choice 500.0\%
+			\choice 1000.0\%
+			\choice 7000000.0
+			\choice 50.0\%
+			\CorrectChoice 100.0\%
+		\end{choices}%
+\vspace{\itemSpace}
+\question \textbf{Choose the best answer.}
+        A program with $2000\mathrm{e}{12}$ instructions runs alone on a CPU. The CPU clock rate is $2\mathrm{e}{9}$ 
+        cycles per second, i.e., 2 GHz. The average cycles per instruction is 5. Suppose that the clock rate is increased to 6 GHz and 
+        the cycles per instruction is reduced to 4. Approximately, what is the overall performance improvement?
+		\begin{choices}
+			\choice 666.7\%
+			\choice 5000000.0
+			\CorrectChoice 275.0\%
+			\choice 66.67\%
+			\choice 2750.0\%
+			\choice 50000000.0
+		\end{choices}%
+\vspace{\itemSpace}
+\question \textbf{Choose the best answer.}
+        A program requires $6\mathrm{e}{9}$ instructions to execute on a processor running at 3 GHz. 
+        Suppose that 10\% of the instructions execute in 2 cycles, 70\% in 3 cycles, and 20\% in 4 cycles 
+        resulting in an execution time of 6.2 seconds.
+        \\
+        Which adjustment improves overall performance approximately by 11\%?
+        
+		\begin{choices}
+			\CorrectChoice 20\% executes at 2 cycles and 80\% at 3 cycles
+			\choice 100\% executes at 2 cycles
+			\choice 100\% executes at 3 cycles
+			\choice 80\% executes at 2 cycles and 20\% at 3 cycles
+		\end{choices}%
+
+\newpage
+\section*{Answer Key}
+    \textbf{1}: A, D, E, G \\
+    \textbf{2}: F \\
+    \textbf{3}: B \\
+    \textbf{4}: F \\
+    \textbf{5}: C \\
+    \textbf{6}: E \\
+    \textbf{7}: C \\
+    \textbf{8}: B \\
+    \textbf{9}: F \\
+    \textbf{10}: C \\
+    \textbf{11}: A \\
+    
+\end{questions}
+\end{document}

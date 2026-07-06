@@ -1,0 +1,27 @@
+version: 1
+project:
+  title: Jim's Stuff
+  authors:
+    - name: Dr. Jim Ashe
+  github: https://github.com/ashejim/BSCS
+  exclude:
+    - C964/**
+    - '**/.history/**'
+  toc:
+    - file: intro.md
+    - file: C949.md
+    - file: C950.md
+    - file: C951.md
+    - file: C952.md
+      children:
+        - file: C952/C952_binary_practice.ipynb
+        - file: C952/C952_pipelining_practice.ipynb
+        - file: C952/C952_cpu_time_practice.ipynb
+    - url: https://ashejim.github.io/C964/intro.html
+      title: Capstone
+    - file: support_this_page.md
+site:
+  template: book-theme
+  options:
+    logo: Ahflors_sph_watermark.png
+    analytics_google: G-KX2MGTZB0G

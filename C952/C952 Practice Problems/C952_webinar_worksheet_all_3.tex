@@ -1,0 +1,540 @@
+%%% Jim Ashe (jim.ashe@wgu.edu; x4209)%%%%
+%%%$updated 8/12/2021 
+   \documentclass{exam}
+   \usepackage{WGU_worksheet_preamble}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   %%header%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \headrule
+   \header{ 
+       \href{mailto:jim.ashe@wgu.edu?subject=C952: Binary worksheet}{Dr.\,Jim Ashe}
+       \\ \textbf{Practice Problems v.3}}
+   {Practice Problems}
+   {\href{https://www02a.timetrade.com/app/wgu-mentoring/workflows/WGU200/schedule?wfsid=16a5bb38-baba97f6-c5aaaaaa-baba97f6-00000003-biretl2gt5o9luofl8glnhopbm30lgea&locationId=course_mentoring&appointmentTypeGroupId=C952&resourceId=any}{\includegraphics[scale=.65]{timetradeMC.png}}}
+   %%note: image file is in overleaf
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \lfoot{\footnotesize Suggestions or errors?\\ Contact the author:   \href{mailto:jim.ashe@wgu.edu?subject=C952: Binary worksheet}{Dr.\,Jim Ashe}.}
+   \cfoot[]{Page \thepage\ of \numpages}
+   \rfoot{\today}
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \newcommand{\itemSpace}{36pt} %adjusts spacing between questions
+
+  \printanswers %%turns answers coloring on
+   \shadedsolutions
+   \colorlet{SolutionColor}{lightBlueWGU!15!white}
+    
+%Adds sub-numbering by section 
+\renewcommand{\thequestion}{\thesection.\arabic{question}}
+\patchcmd{\questions}{10.}{\thequestion.}{}{}% fix left margin 
+%\newcommand{\itemSpace}{36pt} %adjusts spacing between questions %%for ques space adjusting
+\begin{document}
+
+% \subsection*{subsection goes here}
+\begin{questions} %%exam class begin question
+    % \setlength{\multicolsep}{20pt}
+    \setlength\itemsep{20pt} 
+%\setlength\itemsep{\itemSpace} %set length above question. Needs to be set for each question
+\section{Binary Problems}\question \textbf{Choose the best answer.}
+        %%%%binary addition problem%%%%
+        Given the following 8-bit integer binary variables:
+            \begin{itemize}
+            \item[] {\tt{X1}} = 01010001
+            \item[] {\tt{X2}} = 00111110
+            \end{itemize}        
+        What is the value in X3 after the following command:
+            \begin{itemize}
+            \item[] {\tt{ADD X3, X2, X1}}
+            \end{itemize}
+		\begin{choices}
+			\CorrectChoice 10001111
+			\choice 00011110
+			\choice Overflow or carry flag
+			\choice 01000111
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        Given the following 8-bit integer binary variables:
+            \begin{itemize}
+            \item[] {\tt{X1}} = 10100100
+            \item[] {\tt{X2}} = 11001011
+            \end{itemize}  
+        What is the value in X3 after the following command:
+            \begin{itemize}
+            \item[] {\tt{ADD X3, X2, X1}}
+            \end{itemize}
+		\begin{choices}
+			\choice 101101111
+			\choice 01000011
+			\choice 00100111
+			\CorrectChoice 01101111 and overflow or carry flag set.
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        How is the integer $256_{10}$ represented in memory?
+		\begin{choices}
+			\choice 0000001000000000
+			\choice 0000000011111111
+			\choice 0000000100000001
+			\choice 0000000010000000
+			\CorrectChoice 0000000100000000
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        How is the integer $2047_{10}$ represented in memory?
+		\begin{choices}
+			\choice 0000011111111110
+			\CorrectChoice 0000011111111111
+			\choice 0000111111111110
+			\choice 0000001111111111
+			\choice 0000100000000000
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        How is the integer $24_{10}$ represented in memory?
+		\begin{choices}
+			\choice 00010111
+			\choice 00011001
+			\choice 00110000
+			\CorrectChoice 00011000
+			\choice 00001100
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        How is the integer $-25_{10}$ represented in memory?
+		\begin{choices}
+			\choice 11101000
+			\choice 11110100
+			\choice 11001110
+			\choice 11100110
+			\CorrectChoice 11100111
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        What does extending to 16 bits yield given $-72_{10}$ in 8-bit 2’s complement 10111000?
+        (Sorry about the poor wording, but this is how it appears on the assessments!)
+		\begin{choices}
+			\choice 1111111110110111
+			\choice 1111111111011100
+			\choice 1111111110111001
+			\CorrectChoice 1111111110111000
+			\choice 1111111101110000
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}What does extending to 16 bits yield given $27_{10}$ in 8-bit 2’s complement 00011011?
+    (Sorry about the poor wording, but this is how it appears on the assessments!)
+		\begin{choices}
+			\choice 0000000000110110
+			\choice 0000000000011100
+			\choice 0000000000011010
+			\CorrectChoice 0000000000011011
+			\choice 0000000000001101
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        What is the decimal value of this $64$-bit two's complement number?
+        $1111111111111111111111111111111111111111111111111111111111111010_{2}$
+        
+		\begin{choices}
+			\choice -5
+			\choice 5
+			\choice 6
+			\CorrectChoice -6
+			\choice 12
+			\choice -12
+		\end{choices}%
+
+\question \textbf{Choose the best answer.} What is the approximate range of a $64$-bit signed integer?
+		\begin{choices}
+			\choice 0 to 4,294,967,295
+			\choice 0 to 18,446,744,073,709,551,615
+			\choice -18,446,744,073,709,551,616 to 18,446,744,073,709,551,615
+			\CorrectChoice -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+		\end{choices}%
+
+\question \textbf{Choose the best answer.} What is the approximate range of a $64$-bit unsigned integer?
+		\begin{choices}
+			\CorrectChoice 0 to 18,446,744,073,709,551,615
+			\choice -18,446,744,073,709,551,616 to 18,446,744,073,709,551,615
+			\choice 0 to 4,294,967,295
+			\choice -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+		\end{choices}%
+
+\section{Pipelining Problems}\question \textbf{Choose the best answer.}
+        An instruction set has 12 steps and each step takes one clock cycle. 
+        What is the number of cycles needed to complete the instruction sets using a pipelined process to complete 140 instruction sets?
+        
+		\begin{choices}
+			\choice 11.993
+			\CorrectChoice 151
+			\choice 1.079
+			\choice 1.086
+			\choice 12.0
+			\choice 1680
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        An instruction set has 8 steps and each step takes one clock cycle. 
+        What is the average number of cycles needed to complete each instruction set using a pipelined process to complete 50 instruction sets?
+        
+		\begin{choices}
+			\choice 400
+			\choice 57
+			\choice 1.16
+			\CorrectChoice 1.14
+			\choice 7.98
+			\choice 8.0
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        An instruction set has 12 steps each taking 4 clock cycles to complete. 
+        What is the number of cycles needed to complete 90 instruction sets using a pipelined process?
+        
+		\begin{choices}
+			\CorrectChoice 404
+			\choice 48.0
+			\choice 408
+			\choice 4.533
+			\choice 4.489
+			\choice 4320
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        An instruction set has 5 steps each taking 4 clock cycles to complete. 
+        What is the average number of cycles needed to complete each instruction set using a pipelined process to complete 50 instruction sets?
+        
+		\begin{choices}
+			\choice 20.0
+			\choice 4.4
+			\choice 216
+			\choice 1000
+			\CorrectChoice 4.32
+			\choice 19.98
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        An instruction set has 10 steps each taking 2 clock cycles to complete. 
+        Approximately what is the average number of cycles needed to complete each instruction set using a pipelined process to complete 
+        $9.45\times 10^{36}$ instruction sets?
+        
+		\begin{choices}
+			\choice 20
+			\choice 5.0
+			\choice 0
+			\choice ${2}\times 10^{36}$
+			\CorrectChoice 2
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        An instruction set has 6 steps each taking 5 clock cycles to complete. 
+        If 120 sets of instructions are processed, what is the improvement (speedup) using a pipelined instead of a non-pipelined process? 
+        
+		\begin{choices}
+			\choice 625
+			\choice 20.833
+			\choice 30
+			\choice 0.826
+			\choice 0.174
+			\CorrectChoice 5.76
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        An instruction set has 7 steps each taking 5 clock cycles to complete. 
+        If $n$ sets of instructions are processed, what is the theoretical performance improvement (speedup) using 
+        a pipelined instead of a non-pipelined process as $n\rightarrow \infty$ (or for $n$ is very large)? 
+        
+		\begin{choices}
+			\choice 1.4
+			\choice $\infty$
+			\CorrectChoice 7
+			\choice 5
+			\choice 35
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        How many minutes does it take to wash, dry, and fold four loads of laundry using a pipelining approach, given the following information?
+        \begin{itemize}
+            \item[] One washer takes 10 minutes.
+            \item[] One dryer takes 30 minutes.
+            \item[] One folder takes 60 minutes.
+        \end{itemize}
+        
+		\begin{choices}
+			\CorrectChoice 280
+			\choice 340
+			\choice 400
+			\choice 220
+			\choice 160
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        How many minutes does it take to wash, dry, and fold four loads of laundry using a pipelining approach, given the following information?
+        \begin{itemize}
+            \item[] One washer takes 30 minutes.
+            \item[] One dryer takes 15 minutes.
+            \item[] One folder takes 45 minutes.
+        \end{itemize}
+        
+		\begin{choices}
+			\CorrectChoice 225
+			\choice 360
+			\choice 270
+			\choice 180
+			\choice 135
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        How many minutes does it take to wash, dry, and fold seven loads of laundry using a pipelining approach, given the following information?
+        \begin{itemize}
+            \item[] One washer takes 45 minutes.
+            \item[] One dryer takes 50 minutes.
+            \item[] One folder takes 40 minutes.
+        \end{itemize}
+        
+		\begin{choices}
+			\CorrectChoice 435
+			\choice 945
+			\choice 385
+			\choice 335
+			\choice 485
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        A processor will execute an instruction set, S1, S2, and S3, four times using a pipeline approach. 
+        \begin{itemize}
+            \item[] S1 takes 3 clock cycles to complete.
+            \item[] S2 takes 4 clock cycles to complete.
+            \item[] S3 takes 2 clock cycles to complete.
+        \end{itemize}
+        How many clock cycles will this take the processor to complete?
+        
+		\begin{choices}
+			\choice 25
+			\CorrectChoice 21
+			\choice 36
+			\choice 33
+			\choice 29
+		\end{choices}%
+
+\section{CPU Time Problems}\question \textbf{Choose ALL that apply. }How can the CPU performance of a program be improved?
+		\begin{choices}
+			\CorrectChoice Decreasing the clock cycles per instruction.
+			\CorrectChoice Decreasing the number of clock cycles.
+			\choice Increasing the instruction count.
+			\CorrectChoice Decreasing the clock cycle length.
+			\choice Increasing the response time for disk access.
+			\choice Decreasing the clock rate.
+			\CorrectChoice Increasing the throughput of the processor.
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        A program with $1000\mathrm{e}{9}$ instructions runs alone on a CPU. The CPU clock rate is $7\mathrm{e}{9}$ 
+        cycles per second, i.e., 7 GHz. The average cycles per instruction is 6. How many seconds is the 
+        CPU performance for the task?
+		\begin{choices}
+			\choice 0.042
+			\choice 85.714
+			\CorrectChoice 857.143
+			\choice 42000
+			\choice 0.001
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        A program with $2000\mathrm{e}{14}$ instructions runs alone on a CPU. The CPU clock rate is $7\mathrm{e}{9}$ 
+        cycles per second, i.e., 7 GHz. The average cycles per instruction is 3. How many seconds is the 
+        CPU performance for the task?
+		\begin{choices}
+			\choice 8571428.571
+			\choice 42000
+			\choice 0.0
+			\CorrectChoice 85714285.714
+			\choice 0.011
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        A program with $1000\mathrm{e}{12}$ instructions runs alone on a CPU. The CPU clock rate is $3\mathrm{e}{9}$ 
+        cycles per second, i.e., 3 GHz. The average cycles per instruction is 4. Suppose that the clock rate is increased to 7 GHz. 
+        Approximately, what is the overall performance improvement?
+		\begin{choices}
+			\choice 133333.33
+			\CorrectChoice 133.33\%
+			\choice 13.33\%
+			\choice 5.714\%
+			\choice 1333333.33
+			\choice 57.14\%
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        A program with $3000\mathrm{e}{13}$ instructions runs alone on a CPU. The CPU clock rate is $3\mathrm{e}{9}$ 
+        cycles per second, i.e., 3 GHz. The average cycles per instruction is 7. Suppose that the clock rate is increased to 4 GHz and 
+        the cycles per instruction is reduced to 5. Approximately, what is the overall performance improvement?
+		\begin{choices}
+			\choice 866.67\%
+			\choice 25.0\%
+			\CorrectChoice 86.67\%
+			\choice 250.0\%
+			\choice 70000000.0
+			\choice 700000000.0
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        A program with $6000\mathrm{e}{9}$ instructions runs alone on a CPU. The CPU clock cycle time is $400\mathrm{e}{-12}$. 
+        The average cycles per instruction is 7. How many seconds is the CPU performance for the task?
+		\begin{choices}
+			\choice 105.0
+			\CorrectChoice 16800.0
+			\choice 0.0
+			\choice 168000.0
+			\choice 16800000
+			\choice 0.001
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        A program with $5000\mathrm{e}{4}$ instructions runs alone on a CPU. The CPU clock cycle time is $800\mathrm{e}{-12}$ 
+        second. The average cycles per instruction is 3. How many seconds is the 
+        CPU performance for the task?
+		\begin{choices}
+			\choice 1333333.333
+			\choice 8.333
+			\CorrectChoice 0.12
+			\choice 0.833
+			\choice 0.48
+			\choice 0.012
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        A program with $3000\mathrm{e}{3}$ instructions runs alone on a CPU. The CPU clock cycle time is $500\mathrm{e}{-12}$ 
+        second. The average cycles per instruction is 5. How many seconds is the 
+        CPU performance for the task?
+		\begin{choices}
+			\choice 0.001
+			\choice 0.833
+			\choice 133.333
+			\choice 13.333
+			\choice 300000.0
+			\CorrectChoice 0.008
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+           A program runs alone on a CPU. The CPU clock rate is 3e9 cycles per second, i.e., 3 GHz. 
+           It takes 12e11 clock cycles to complete the program. How many seconds is the CPU performance for the task?
+		\begin{choices}
+			\CorrectChoice 400.0
+			\choice 36
+			\choice 4000.0
+			\choice 3.6
+			\choice 40.0
+			\choice 360
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        A program requires $7000\mathrm{e}{14}$ instructions to execute on a processor running at 
+        $5\mathrm{e}{9}$ cycles per second, i.e., 5 GHz.
+        Suppose that 30\% of the instructions execute in 3 cycles, 25\% in one cycle, and 45\% in 4 cycles. How many seconds is the 
+        CPU performance for the task?
+		\begin{choices}
+			\choice 41300000000.0
+			\CorrectChoice 413000000.0
+			\choice 41300000.0
+			\choice 560000000.0
+			\choice 4130000000.0
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        A program requires $7\mathrm{e}{9}$ instructions to execute on a processor running at 4 GHz
+        with an average cycles per instruction of 4, resulting in an execution time of 7.0 seconds.
+        \\
+        Which adjustment improves overall performance approximately by 50\%?
+        
+		\begin{choices}
+			\choice A rate of 5 GHz and 3 cycles per instruction.
+			\choice A rate of 2 GHz and 5 cycles per instruction.
+			\choice A rate of 6 GHz and 6 cycles per instruction.
+			\CorrectChoice A rate of 3 GHz and 2 cycles per instruction.
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        A program with $1000\mathrm{e}{14}$ instructions runs alone on a CPU. The CPU clock rate is $3\mathrm{e}{9}$ 
+        cycles per second, i.e., 3 GHz. The average cycles per instruction is 4. Suppose that the clock rate is increased to 5 GHz and 
+        the cycles per instruction is reduced to 2. Approximately, what is the overall performance improvement?
+		\begin{choices}
+			\choice 2333.33\%
+			\CorrectChoice 233.33\%
+			\choice 40.0\%
+			\choice 400.0\%
+			\choice 1333333333.33
+			\choice 133333333.33
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        A program requires $3\mathrm{e}{9}$ instructions to execute on a processor running at 6 GHz. 
+        Suppose that 30\% of the instructions execute in 2 cycles, 30\% in 3 cycles, and 40\% in 4 cycles 
+        resulting in an execution time of 1.55 seconds.
+        \\
+        Which adjustment improves overall performance approximately by 19\%?
+        
+		\begin{choices}
+			\choice 60\% executes at 2 cycles and 40\% at 3 cycles
+			\CorrectChoice 40\% executes at 2 cycles and 60\% at 3 cycles
+			\choice 100\% executes at 3 cycles
+			\choice 100\% executes at 2 cycles
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+           A program with $3\mathrm{e}{9}$ instructions runs in $8$ seconds on computer with a $4$ GHz clock. 
+           A designer will build a new computer which can run the same program in $4$ seconds by increasing the clock rate. 
+           What clock clock rate should the designer target? 
+           
+		\begin{choices}
+			\choice 7.5
+			\CorrectChoice 8.0
+			\choice 0.75
+			\choice 0.8
+			\choice 0.075
+			\choice 80.0
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        Four processors (A, B, C, and D) have clock frequencies of $1$ Mhz, $2$ Mhz, $3$ Mhz, and $4$ Mhz respectively.
+        
+        Suppose:
+        \begin{itemize}
+            \item[] Processor A can execute an instruction with an average of $1$
+            \item[] Processor B can execute an instruction with an average of $1$
+            \item[] Processor C can execute an instruction with an average of $6$
+            \item[] Processor D can execute an instruction with an average of $6$
+        \end{itemize}
+        
+        Which processor should be selected to improve performance using the same instruction set? 
+        
+		\begin{choices}
+			\choice Processor A
+			\CorrectChoice Processor B
+			\choice Processor C
+			\choice Processor D
+		\end{choices}%
+
+\question \textbf{Choose the best answer.}
+        Four processors (A, B, C, and D) have clock frequencies of $2$ Mhz, $3$ Mhz, $5$ Mhz, and $6$ Mhz respectively.
+        
+        Suppose:
+        \begin{itemize}
+            \item[] Processor A can execute an instruction with an average of $3$
+            \item[] Processor B can execute an instruction with an average of $3$
+            \item[] Processor C can execute an instruction with an average of $4$
+            \item[] Processor D can execute an instruction with an average of $4$
+        \end{itemize}
+        
+        Which processor should be selected to improve performance using the same instruction set? 
+        
+		\begin{choices}
+			\choice Processor A
+			\choice Processor B
+			\choice Processor C
+			\CorrectChoice Processor D
+		\end{choices}%
+
+    
+\end{questions}
+\end{document}
+
+Process finished with exit code 0

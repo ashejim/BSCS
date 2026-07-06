@@ -1,0 +1,88 @@
+[
+    {
+        "question": "Given the following 8-bit integer binary variables X1 = 0101 1111 and X2 = 0010 0011, what is the value in X3 after the command  ADD X3, X2, X1 ?",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "0010 0000", "correct": false, "feedback": "That is not the sum. Add X2 + X1 = 0010 0011 + 0101 1111."},
+            {"answer": "Overflow error or carry flag", "correct": false, "feedback": "There is no carry out of the most-significant bit: 35 + 95 = 130, which still fits in 8 bits."},
+            {"answer": "1000 0010", "correct": true, "feedback": "Correct. 0010 0011 (35) + 0101 1111 (95) = 1000 0010 (130), with no carry out of bit 7."},
+            {"answer": "0100 0001", "correct": false, "feedback": "Re-check the carries in your binary addition."}
+        ]
+    },
+    {
+        "question": "Given the following 8-bit integer binary variables X1 = 0101 1100 and X2 = 1100 1101, what is the value in X3 after the command  ADD X3, X2, X1 ?",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "0111 0001", "correct": false, "feedback": "Re-check your binary addition."},
+            {"answer": "0110 0001", "correct": false, "feedback": "Re-check your binary addition."},
+            {"answer": "Overflow error or carry flag", "correct": true, "feedback": "Correct. 1100 1101 (205) + 0101 1100 (92) = 1 0010 1001, which carries out of the most-significant bit, setting the carry flag."},
+            {"answer": "0010 1001", "correct": false, "feedback": "This is the low 8 bits of the sum, but the addition carries out of the most-significant bit, so the carry flag is set."}
+        ]
+    },
+    {
+        "question": "How is the integer $-7_{10}$ represented in 8-bit memory?",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "1111 1000", "correct": false, "feedback": "Close. Invert +7 (0000 0111) to 1111 1000, then add 1."},
+            {"answer": "1111 1101", "correct": false, "feedback": "That is not two's complement of 7."},
+            {"answer": "1111 0010", "correct": false, "feedback": "That is not two's complement of 7."},
+            {"answer": "1111 1010", "correct": false, "feedback": "Off by one. Invert 0000 0111 to 1111 1000, then add 1 to get 1111 1001."},
+            {"answer": "1111 1001", "correct": true, "feedback": "Correct. +7 = 0000 0111; invert to 1111 1000 and add 1 to get 1111 1001."}
+        ]
+    },
+    {
+        "question": "How is the integer $26_{10}$ represented in 8-bit memory?",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "0001 1010", "correct": true, "feedback": "Correct. 26 = 16 + 8 + 2 = 0001 1010."},
+            {"answer": "0001 1011", "correct": false, "feedback": "That is 27, not 26."},
+            {"answer": "0000 1101", "correct": false, "feedback": "That is 13, not 26."},
+            {"answer": "0001 1001", "correct": false, "feedback": "That is 25, not 26."},
+            {"answer": "0011 0100", "correct": false, "feedback": "That is 52, not 26."}
+        ]
+    },
+    {
+        "question": "How is the integer $64_{10}$ represented in 16-bit memory?",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "0000 0000 0010 0000", "correct": false, "feedback": "That is 32, not 64."},
+            {"answer": "0000 0000 1000 0000", "correct": false, "feedback": "That is 128, not 64."},
+            {"answer": "0000 0000 0100 0001", "correct": false, "feedback": "That is 65, not 64."},
+            {"answer": "0000 0000 0011 1111", "correct": false, "feedback": "That is 63, not 64."},
+            {"answer": "0000 0000 0100 0000", "correct": true, "feedback": "Correct. $64 = 2^6 =$ 0000 0000 0100 0000."}
+        ]
+    },
+    {
+        "question": "How is the integer $7_{10}$ represented in 16-bit memory?",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "0000 0000 0000 0011", "correct": false, "feedback": "That is 3, not 7."},
+            {"answer": "0000 0000 0000 1110", "correct": false, "feedback": "That is 14, not 7."},
+            {"answer": "0000 0000 0000 0110", "correct": false, "feedback": "That is 6, not 7."},
+            {"answer": "0000 0000 0000 0111", "correct": true, "feedback": "Correct. 7 = 4 + 2 + 1 = 0000 0000 0000 0111."},
+            {"answer": "0000 0000 0000 1000", "correct": false, "feedback": "That is 8, not 7."}
+        ]
+    },
+    {
+        "question": "What does extending to 16 bits yield, given $-78_{10}$ as the 8-bit two's-complement value 1011 0010? (Sorry about the poor wording, but this is how it appears on the assessments!)",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "1111 1111 1011 0011", "correct": false, "feedback": "Sign-extend by copying the sign bit; the low 8 bits stay 1011 0010."},
+            {"answer": "1111 1111 1101 1001", "correct": false, "feedback": "The low 8 bits must remain 1011 0010."},
+            {"answer": "1111 1111 1011 0010", "correct": true, "feedback": "Correct. The sign bit is 1, so extend with 1s: 1111 1111 1011 0010."},
+            {"answer": "1111 1111 0110 0100", "correct": false, "feedback": "The low 8 bits must remain 1011 0010."},
+            {"answer": "1111 1111 1011 0001", "correct": false, "feedback": "The low 8 bits must remain 1011 0010."}
+        ]
+    },
+    {
+        "question": "What does extending to 16 bits yield, given $6_{10}$ as the 8-bit two's-complement value 0000 0110? (Sorry about the poor wording, but this is how it appears on the assessments!)",
+        "type": "multiple_choice",
+        "answers": [
+            {"answer": "0000 0000 0000 1100", "correct": false, "feedback": "The low 8 bits must remain 0000 0110."},
+            {"answer": "0000 0000 0000 0101", "correct": false, "feedback": "The low 8 bits must remain 0000 0110."},
+            {"answer": "0000 0000 0000 0111", "correct": false, "feedback": "The low 8 bits must remain 0000 0110."},
+            {"answer": "0000 0000 0000 0011", "correct": false, "feedback": "The low 8 bits must remain 0000 0110."},
+            {"answer": "0000 0000 0000 0110", "correct": true, "feedback": "Correct. The sign bit is 0, so extend with 0s: 0000 0000 0000 0110."}
+        ]
+    }
+]

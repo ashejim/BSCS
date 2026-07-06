@@ -1,0 +1,336 @@
+%%a potential formula sheet format%%
+\documentclass[portrait,final,a0paper, fontscale=0.277]{baposter}
+
+\usepackage{calc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{bm}
+\usepackage{url}
+%\usepackage{hyperref}  incompatiable with baposter
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{pgfplots,pgfplotstable}
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\pgfplotsset{compat=newest}
+\usepackage{filecontents}
+%\usepackage[perpage,para,symbol*]{footmisc}
+%%%biblatex%%%%%%%%%%
+%\usepackage[style=numeric,natbib=true]{biblatex}
+%\usepackage[style=numeric]{biblatex}
+%\addbibresource{/home/jim/JamesAshe/biblatex_jashe}
+%\defbibheading{poster}{\vskip 0.1em} % Replace default heading
+%\renewcommand{\bibfont}{\footnotesize\sffamily}
+
+
+%\usepackage{times}
+%\usepackage{helvet}
+%\usepackage{bookman}
+\usepackage{palatino}
+%\usepackage{float}
+
+\newcommand{\captionfont}{\footnotesize}
+%\usepackage[font=small,labelfont=bf]{caption}
+
+
+%\graphicspath{{images/}{.../images/}}
+\usetikzlibrary{calc}
+
+\newcommand{\SET}[1]  {\ensuremath{\mathcal{#1}}}
+\newcommand{\MAT}[1]  {\ensuremath{\boldsymbol{#1}}}
+\newcommand{\VEC}[1]  {\ensuremath{\boldsymbol{#1}}}
+\newcommand{\Video}{\SET{V}}
+\newcommand{\video}{\VEC{f}}
+\newcommand{\track}{x}
+\newcommand{\Track}{\SET T}
+\newcommand{\LMs}{\SET L}
+\newcommand{\lm}{l}
+\newcommand{\PosE}{\SET P}
+\newcommand{\posE}{\VEC p}
+\newcommand{\negE}{\VEC n}
+\newcommand{\NegE}{\SET N}
+\newcommand{\Occluded}{\SET O}
+\newcommand{\occluded}{o}
+%%%theorem naming
+\newtheoremstyle{named}{}{}{\itshape}{}{\bfseries}{.}{.5em}{\thmnote{#3 }#1} 
+\theoremstyle{named} 
+\newtheorem*{namedtheorem}{Theorem} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Some math symbols used in the text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Multicol Settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\columnsep}{1.5em}
+\setlength{\columnseprule}{0mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Save space in lists. Use this after the opening of the list
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\compresslist}{%
+\setlength{\itemsep}{1pt}%
+\setlength{\parskip}{0pt}%
+\setlength{\parsep}{0pt}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin of Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Here starts the poster
+%%%---------------------------------------------------------------------------
+%%% Format it to your taste with the options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define some colors
+
+%\definecolor{lightblue}{cmyk}{0.83,0.24,0,0.12}
+\definecolor{lightblue}{rgb}{0.145,0.6666,1}
+\definecolor{JCSUblue}{rgb}{0.0,0.32,1.59}
+\definecolor{darkblue}{rgb}{0.0,0.32,2.0}
+\definecolor{JCSUyellow}{rgb}{2.35,1.82,0.0}
+
+\begin{poster}%
+  % Poster Options
+  {
+  % Show grid to help with alignment
+  grid=false,
+  % Column spacing
+  colspacing=1em,
+  % Color style
+  bgColorOne=white,
+  bgColorTwo=white,
+  borderColor=lightblue,
+  headerColorOne=black,
+  headerColorTwo=JCSUblue,
+  headerFontColor=JCSUyellow,
+  boxColorOne=white,
+  boxColorTwo=JCSUblue,
+  % Format of textbox
+  textborder=roundedleft,
+  % Format of text header
+  eyecatcher=true,
+  headerborder=closed,
+  headerheight=0.1\textheight,
+%  textfont=\sc, An example of changing the text font
+  headershape=roundedright,
+  headershade=shadelr,
+  headerfont=\Large\bf\textsc, %Sans Serif
+  textfont={\setlength{\parindent}{1.5em}},
+  boxshade=plain,
+%  background=shade-tb,
+  background=plain,
+  linewidth=2pt
+  }
+  % Eye Catcher
+	{\includegraphics[height=5.5em]{images/Thomson_410_mesh_thermal.png}}
+	%\captionfont{\emph{Energy distribution $N=410$ point}
+  % Title
+  {\bf\textsc{Modeling the Thomson Problem with Circle Packings}\vspace{0.5em}}
+  % Authors
+  {\textsc{ Daniel Villanueva  \hspace{1em} Merschia Griffin \hspace{1em} James Ashe, Ph.D. \\ \vspace{.1em} \normalsize{\textbf{Department of Natural Sciences and Mathematics, Johnson C. Smith University, Charlotte, NC}}}}
+  % University logo
+  {\includegraphics[height=5.5em]{images/jcsu_logo.png}
+    %\includegraphics[width=5.5em]{images/jcsu_logo.jpg}}
+  }
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Now define the boxes that make up the poster
+%%%---------------------------------------------------------------------------
+%%% Each box has a name and can be placed absolutely or relatively.
+%%% The only inconvenience is that you can only specify a relative position 
+%%% towards an already declared box. So if you have a box attached to the 
+%%% bottom, one to the top and a third one which should be in between, you 
+%%% have to specify the top and bottom boxes before you specify the middle 
+%%% box.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % A coloured circle useful as a bullet with an adjustably strong filling
+    \newcommand{\colouredcircle}{%
+      \tikz{\useasboundingbox (-0.2em,-0.32em) rectangle(0.2em,0.32em); \draw[draw=black,fill=lightblue,line width=0.03em] (0,0) circle(0.18em);}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{The Thomson Problem}{name=problem,column=0,row=0,span=1}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The Thomson problem asks how to find the minimum energy distribution of $N$ electrons on the surface of the sphere. The \emph{energy}
+of $N$ points, $p_{1},p_{2},\dots,p_{N}$, on the sphere is defined
+as 
+\[
+E={\displaystyle \sum_{i<j}\frac{1}{\left|p_{i}-p_{j}\right|}}\mbox{.}
+\]
+Number 7 on Smale's list of conjectures, this problem remains one
+of the most important unsolved packing problems, and has applications in biology and physics \cite{wiki}.
+%Not just important
+%in mathematics, the Thomson problem is related or equivalent to many
+%other problems in biology, physics, computer science, chemisty, etc
+%{[}wiki{]}. 
+
+Known solutions have been rigorously proven for only a small number
+of special cases. In general, finding a solution is an NP hard problem, and progress has relied on computational methods
+\cite{wales}.
+\\[-.8em]
+%Using such methods, smallest known energy distributions for most points
+%sets less than 1000 have been found {[}cite paper{]}.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Circle Packings}{name=packing,column=0,below=problem, above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   Circle packings are configurations of circles with specified patterns
+of tangency. The following theorem provides rigidity and existence
+of circle packings on the sphere.
+
+\begin{namedtheorem}[Koebe-Andreev-Thurston]
+
+There exists a circle packing on the sphere for any finite triangulation
+of the sphere. Furthermore, this circle packing is unique up to M\"{o}bius
+transformations.
+\end{namedtheorem} 
+
+\vspace{-.5em} 
+\noindent\begin{tabular}{@{\hspace{0.0em}}c@{\hspace{0.0em}}c@{\hspace{0.0em}}}
+\includegraphics[width=1.0\linewidth]{images/complex_to_sphere.pdf}\\[-.5em]
+\captionfont{\emph{A tangency pattern and its circle packing.}}
+\end{tabular}
+\\[.5em]
+The actual radii for the circle packing guaranteed by this theorem
+can always be found using the \emph{Circle Packing Algorithm} \cite{algor}.
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+Moreover we have a feature rich software package,  $\tt{CirclePack}$\footnote{\url{http://www.math.utk.edu/~kens/CirclePack/};
+special thanks to Ken Stephenson, University of Tennessee, for developing and maintaining this
+freely available software.
+}, for computing and visualizing the lovely results.
+
+\begin{namedtheorem}[Thurston's Circle Packing Conjecture]
+
+The conformal mapping of a bounded simply connected domain onto the
+unit disc can be approximated with a circle packing.
+
+\end{namedtheorem}
+
+In summary, we have the following:
+\begin{enumerate}
+\item An essentially unique circle packing for a spherical triangulation
+exists.
+\item The circle packing can be computationally realized using $\tt{CirclePack}$.
+\item As the number of circles increase, a circle packing analogue will
+converge towards its continuous counter part  \cite{introCP}. 
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Combinatorics}{name=combinatorics,column=2,row=0}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   Repelling points on a flat surface naturally adopt a hexagonal pattern. However the topology of the sphere precludes a triangulation where every vertex has 6 neighbors. Try wrapping a sheet of paper around a basketball --imperfections in your wrapping job are unavoidable.
+
+The Euler characteristic states that there will be 12 such ``imperfections'' where a vertex has 5 neighbors. The truncated icosahedron, a soccer ball, is a classic example. Thus a combinatorial perspective may shed new light on this problem.  
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Manipulations}{name=manipulations,column=2,below=combinatorics,row=0}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Now it is demonstrated how manipulating the combinatorics of circle packings can be used to reduce energy.      
+    A Whitehead move, or ``flip'', replaces one interior edge with another in the union of two edge-sharing faces. Such a modification does not change the number of points -only the combinatorics locally. However these local changes result in a new circle packing and thus invoke a global geometric change.
+    
+    A common issue with optimization algorithms is settling into a local but not a global minimum. In the figures below, two defects are separated be an area of degree six vertices. Following a sequence of flips, the defects are then combined and neutralized. Locally such defects may be difficult to fix, but the ``ladder'' bridges the two local imperfections.
+    \\[.25em]
+    \noindent\begin{tabular}{@{\hspace{0.0em}}c@{\hspace{0.0em}}c@{\hspace{0.0em}}}
+	\includegraphics[width=1.0\linewidth]{images/ladder.pdf}\\[-.5em]
+	\captionfont{\emph{A defect is eliminated through a series of flips.}}\\
+	\end{tabular}	
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{A Discrete Model}{name=model,column=1,row=0}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The Thomson problem is well studied, and there is a large catalog
+of current minimal energy distributions \cite{thomson:wales}. These point sets are stored
+in the interactive web applet, $\tt{thomsonapplet}$\footnote{\url{http://thomson.phy.syr.edu}, Cris
+Cecka, Primary Author. ccecka@seas.harvard.edu}, which can also generate random point sets, measure the energy, and
+implement a wide array of algorithms. 
+
+To construct a circle packing model for $N$ energy points on the
+sphere we did the following: 
+\begin{enumerate}
+\item Find the Delaunay triangulations for $N$ points using data from $\tt{thomsonapplet}$. 
+\item Compute the circle packing for this triangulation using $\tt{CirclePack}$.
+\item Normalize the packing by applying a M\"{o}bius map such that the
+centroid of the circle centers in $\mathbb{R}^{3}$ is at the origin. 
+\end{enumerate}
+The \emph{error }of this model was measured as, 
+\[
+error={\captionfont \frac{\mbox{(energy from circle packing)-(energy)}}{\mbox{energy}}}
+\]
+\\[-1.25em]
+\noindent\begin{tabular}{@{\hspace{0.0em}}c@{\hspace{0.0em}}c@{\hspace{0.0em}}}
+\includegraphics[width=1.0\linewidth]{images/data_and_chart_for_printing3.pdf}
+\\[-.5em]
+\end{tabular}
+The Figure above shows the error for minimal known $N$ distributions. The error from our experiments never exceeded $0.0062$, and as
+expected the error tended toward $0$ for large values of $N$. The error introduced by the discreteness of circle packings
+is limited for even very small $N$ and inconsequential for large $N$.
+
+\noindent\begin{tabular}{@{\hspace{0.0em}}c@{\hspace{1.5em}}c@{\hspace{0.0em}}}
+%\includegraphics[width=0.46\linewidth]{images/Thomson_410_mesh_thermal.png} &
+\includegraphics[width=0.46\linewidth]{images/Thomson_410_3d_pts.png} &
+\includegraphics[width=0.46\linewidth]{images/cp410_min.png} \\
+\captionfont{\emph{A minimal distributon}} & \captionfont{\emph{A circle packing model}} 
+\end{tabular}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Acknowledgments}{name=thanks,column=2,row=0,below=manipulations,above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\smaller
+Funding for this project was provided by HBCU-UP of Johnson C.\,Smith. Ken Stephenson, University of Tennessee, provided advice and programming support. $\tt{CirclePack}$, $\tt{thomsonapplet}$, $\tt{Inkscape}$, $\tt{Gimp}$, and \LaTeX{} were all used to produce this document.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{References}{name=references,column=1,below=model,above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \smaller
+    \bibliographystyle{ieee}
+    \renewcommand{\section}[2]{\vskip 0.05em}
+    \begin{thebibliography}{1}\itemsep=-0.01em
+      \setlength{\baselineskip}{0.4em}
+      
+      \bibitem{wiki}
+	\newblock \emph{Thomson Problem} 2012.
+	\newblock \url{http://en.wikipedia.org/wiki/Thomson_problem}.
+      
+      \bibitem{wales}
+	D.~J.~Wales and S.~Ulker.
+	\newblock ``Structure and dynamics of spherical crystals characterized for the Thomson problem''.
+	\newblock \emph{Physical Review B} 74.21 (2006).
+
+      \bibitem{algor}
+        C.~Collins and K.~Stephenson.
+        \newblock ``A circle packing algorithm''.
+	\newblock \emph{Computational Geometry} 25.3 (2003).
+
+      \bibitem{introCP}
+	K.~Stephenson.
+	\newblock \emph{Introduction to circle packing}. 
+	\newblock Cambridge University Press (2005). 
+
+      \bibitem{thomson:wales}
+	D.~J.~Wales and S.~Ulker.
+	\newblock \emph{Global Minima for the Thomson Problem} (2006). 
+	\newblock \url{ http://www-							wales.ch.cam.ac.uk/~wales/CCD/Thomson/table.html}.
+    \end{thebibliography}
+  \vspace{0.3em}
+  }
+  
+\end{poster}
+
+\end{document}

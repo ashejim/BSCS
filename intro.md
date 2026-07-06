@@ -6,95 +6,52 @@ Welcome! One of my several (and favorite) stops at WGU was the BSCS team. During
 I no longer support these courses. As such, this is *not* a complete nor current repository of all resources. Reach out to your assigned course instructor, to ensure you get everything you need.
 :::
 
-::::{card-carousel} 5
+::::{grid} 1 2 2 3
 
-:::{card}
-:margin: 3
-:width: 25%
-:class-body: text-center
-:class-header: bg-light text-center
-:link: ./C949.html
+:::{card} Data Structures & Algorithms
+:link: ./C949.md
 
-**Data Structures & Algorithms**
-^^^
 ```{image} ./url_images/big_O_image.png
-:alt: Graph showing the growth of functions as $n\righarrow \infty$. Functions growing faster to slower are $c^n$ (an almost vertical line), $c \cdot n^{10}$, $c \cdot n^{2}$, $n \log_{c}n$, $c \cdot n$, $\log_{c}n, and $c$ (a horizontal line) 
+:alt: Graph showing the growth of functions as n approaches infinity.
 ```
-
-Data Structures & Algorithms I
 +++
-Go to page {fas}`arrow-right`
+Data Structures & Algorithms I — Go to page →
 :::
 
-:::{card}
-:margin: 3
-:width: 25%
-:class-body: text-center
-:class-header: bg-light text-center
-:link: ./C950.html
+:::{card} Data Structures & Algorithms II
+:link: ./C950.md
 
-**Data Structures & Algorithms II**
-^^^
 ```{image} ./url_images/tsp_xk_cd_cropped.png
 ```
-
-Data Structures & Algorithms I
 +++
-Go to page {fas}`arrow-right`
+Data Structures & Algorithms II — Go to page →
 :::
 
-:::{card}
-:margin: 3
-:width: 25%
-:class-body: text-center
-:class-header: bg-light text-center
-:link: ./C951.html
+:::{card} Intro to AI
+:link: ./C951.md
 
-**Intro to AI**
-^^^
 ```{image} ./url_images/hal_like_image_cropped.jpg
 ```
-
-Introduction to Artificial Intelligence
 +++
-Go to page {fas}`arrow-right`
+Introduction to Artificial Intelligence — Go to page →
 :::
 
-:::{card}
-:margin: 3
-:width: 25%
-:class-body: text-center
-:class-header: bg-light text-center
-:link: ./C952.html
+:::{card} Computer Architecture
+:link: ./C952.md
 
-**Computer Architecture**
-^^^
 ```{image} ./url_images/c952_CA_map_cropped.png
 ```
-
-Computer Architecture
 +++
-Go to page {fas}`arrow-right`
+Computer Architecture — Go to page →
 :::
 
-:::{card}
-:margin: 3
-:width: 25%
-:class-body: text-center
-:class-header: bg-light text-center
+:::{card} Capstone
 :link: https://ashejim.github.io/C964/intro.html
 
-**Capstone**
-^^^
 ```{image} ./url_images/3d_regression_image_cropped.png
 ```
-
-BSCS Capsonte
 +++
-Go to page {fas}`arrow-right`
+BSCS Capstone — Go to page →
 :::
 
 ::::
-
-```{tableofcontents}
-```

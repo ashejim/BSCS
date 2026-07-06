@@ -1,0 +1,128 @@
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[parfill]{parskip} %%skips lines for paragraphs instead of indents
+\usepackage[shortlabels]{enumitem} %%easy lettering in enumeration
+\usepackage{amsmath,xparse}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{nicefrac} % for \nicefrac macro
+\usepackage{enumitem}
+\usepackage[usenames,dvipsnames]{xcolor} %adds additional color options %usenames, 
+\usepackage[framemethod=tikz]{mdframed} %%framed/colored boxes
+
+%%%%For Psuedocode%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{algorithm} %%needs amsmath also try algorithmicx and algorithm2e
+\usepackage[noend]{algpseudocode}
+\def\BState{\State\hskip-\ALG@thistlm}  %%formatting preference ex: \BState \emph{top}:
+%\usepackage{ifthen}
+\usepackage{xfrac}
+\usepackage{hyperref}
+%\usepackage{color}
+\usepackage{multicol}
+\usepackage{tikzsymbols} %%for smileys and stuff
+%sets math fonts to be more readable
+%\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+
+\usepackage{fancybox} %%ovalbox and fancy box settings
+
+\usepackage[super]{nth} %easy 1st, 2nd, etc
+
+\usepackage{forest} %%for tree diagram
+
+%%%%%%%%%exam class%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%Ensure that each question and their associated answer choices are forced to be printed on the same page:%%%
+%\renewenvironment{setmcquestion}{\begin{minipage}[t]{\linewidth-\labelwidth}}{\end{minipage}\par}
+
+
+%%%%%picture settings%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%preview sets height and width auto but geometry forces width%%
+%\usepackage{tikz}
+%\usepackage{tkz-euclide} %%angle marks and such
+%\usepackage{tikz-3dplot}
+%\usetikzlibrary{arrows,decorations.pathmorphing}
+%\usetikzlibrary{shapes,calc,positioning}
+%\usetikzlibrary{angles,quotes}
+%\usetikzlibrary{plotmarks}
+%\usetikzlibrary{fit}
+%\usetkzobj{all} %%angle marks and such
+%\usepackage{pgfplots}
+%\pgfplotsset{width=7cm,compat=newest}
+%\usepackage{pgf-pie}
+%\usepackage{pstricks,pst-plot}
+%\usepackage{calc}
+%\usepackage{amssymb}
+%\usepackage[outline]{contour}  %allows text halos
+%\usepackage{colortbl}
+%\usepackage{units}
+\usepackage{mathtools,cancel}
+%\usepackage{MnSymbol,wasysym}  %allows smileys and frownies
+
+%%%settings width and height of pictures%%%%%
+
+%%%cuts whitespace when Tikz-euclide uses intersections
+\makeatletter
+\def\tkz@Projection(#1,#2)(#3)#4{%
+\begingroup 
+  \pgfpointdiff{\pgfpointanchor{#1}{center}}%
+               {\pgfpointanchor{#2}{center}}%
+  \tkz@ax =\pgf@y%
+  \tkz@ay =\pgf@x%
+  \begin{pgfinterruptboundingbox}
+  \path[coordinate](#3)--++(-\tkz@ax,\tkz@ay) coordinate (tkz@point);
+  \end{pgfinterruptboundingbox}
+  \tkz@InterLL(#1,#2)(#3,tkz@point){#4}% d?finit tkzPointResult 
+\endgroup
+}
+%%%%%%%%%%%algorihtm settings%%%%%%%
+\algrenewcommand\ALG@beginalgorithmic{\fontfamily{pcr}\selectfont} %change font size \footnotesize
+%\algrenewcommand\algorithmiccomment[2][\normalsize]{{#1\hfill\(\triangleright\) #2}} %change just comments
+
+%%%%Exam Class Settings%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\CorrectChoiceEmphasis{\color{OliveGreen}}
+
+\definecolor{blueWGU}{RGB}{0,48,87}
+\definecolor{lightBlueWGU}{RGB}{73,134,160}
+\hypersetup{colorlinks=true, urlcolor=blueWGU, linkcolor=blue}
+
+\newcommand*\circled[1]{%changes question label appearance. set in doc preamble \question label
+  \tikz[baseline=(char.base)]
+    \node[
+      shape=circle,
+      fill=blueWGU,
+      inner sep=1.5pt,
+      text=white,
+      minimum size=1.5em
+    ] (char) {#1};
+}
+
+
+\renewcommand*\circled[1]{%changes question label appearance. set in doc preamble \question label
+  \tikz[baseline=(char.base)]
+    \node[
+      shape=rectangle,
+      fill=blueWGU,
+      inner sep=1.5pt,
+      text=white,
+      minimum size=1.5em,
+      rounded corners = .25em
+    ] (char) {#1};
+}
+
+\renewcommand{\questionlabel}{\circled{\thequestion}} %%sets question labels to colored circles
+
+\makeatother

@@ -1,0 +1,648 @@
+%%% Jim Ashe (jim.ashe@wgu.edu; x4209)%%%%
+\documentclass{exam}
+\usepackage{WGU_worksheet_preamble}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%header%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headrule
+\header{ 
+    \href{mailto:matt.alexander@wgu.edu?subject=C960: probability worksheet}{Dr.\,Matt Alexander}, 
+    \href{mailto:joshua.bilbrey@wgu.edu?subject=C960: probability worksheet}{Dr.\,Josh Bilbrey}, and
+    \href{mailto:malcolm.rupert@wgu.edu?subject=C960: probability worksheet}{Dr.\,Malcom Rupert}
+    \\ \textbf{C960: Discrete Probability}}
+{Practice Problems}
+{\href{https://docs.google.com/document/d/17cwOMXdEHx8Gxk_PSTrZKbIpZP9iikU3quXve2d_nvI/edit}{\includegraphics[scale=.65]{timetradeMC.png}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lfoot{\footnotesize Suggestions or errors?\\ Contact the author:   \href{mailto:jim.ashe@wgu.edu?subject=C960: probability worksheet}{Dr.\,Jim Ashe}.}
+\cfoot[]{Page \thepage\ of \numpages}
+\rfoot{\today}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\itemSpace}{36pt} %adjusts spacing between questions. See question environment
+\usepackage{color}
+\printanswers
+\shadedsolutions
+\colorlet{SolutionColor}{lightBlueWGU!15!white}
+
+%\definecolor{SolutionColor}{gray}{0.8}
+\begin{document}
+
+%%%%%Advanced Counting%%%%%%%%%%%%%%%%%%%
+\section*{Advanced Counting} 
+\begin{questions}
+\setlength\itemsep{\itemSpace} %set length above question. Needs to be set for each question environment
+\question A college has $1105$ students. This semester $320$ students are
+taking a math course, $405$ of the students are taking a history
+class, and $250$ of the students taking a math class are not enrolled
+in a history class.
+    \begin{parts}
+        \part Construct a Venn diagram, and write the appropriate numbers in the four regions
+            \begin{solution}
+            
+            \begin{tikzpicture}[scale=1.0]
+            	\def\circleA{(0,0) circle (1.5)} %A
+            	\def\circleB{(0:2) circle (1.5)} %B
+            
+            	\colorlet{circle edgeA}{black!75} 
+            	\colorlet{circle areaA}{red!100}
+            	\colorlet{circle edgeB}{black!75} 
+            	\colorlet{circle areaB}{green!100}
+            
+            	\tikzset{
+            		filledA/.style={fill=circle areaA, draw=circle edgeA, thick},
+            		filledB/.style={fill=circle areaB, draw=circle edgeB, thick},
+            		outlineA/.style={draw=circle edgeA, thick},
+            		outlineB/.style={draw=circle edgeB, thick},
+            	}
+            
+            	\begin{scope}[fill opacity=0.5]         
+            			%\fill[filledB] \circleB;    
+            			%\fill[filledA] \circleA;
+            	\end{scope}
+            
+            	\draw[outlineA] \circleA node {$M$} node[below=10pt] {$250$}; 
+            	\draw[outlineB] \circleB node {$H$} node[below=10pt] {$335$}; 
+            	\node at (0:1) {$70$}; %%intersection node%%
+            	\node[anchor=south] at (current bounding box.north) {$450$}; 
+            	\draw[thick] (-2,-2) rectangle (4,2) node[anchor=south east] at (current bounding box.south east) {$U$}; 
+            \end{tikzpicture} 
+            
+            $n(M\cap H)=320-250$=70, $n(H-M)=405-70=335$, and $n\left((M\cup H)'\right)=1105-250-70-335=450$.
+            \end{solution}
+        \part How many of the students are taking math and history?
+            \begin{solution}
+            $n(H\cap H)=70$
+            \end{solution}
+        \part How many students are taking history but not math?
+            \begin{solution}
+            $n(H-M)=335$
+            \end{solution}
+        \part How many students are taking math or history?
+            \begin{solution}
+            $n(M\cup H)=250+70+335=655$
+            \end{solution}
+        \part How many students are taking neither math nor history?
+            \begin{solution}
+            $n\left((M\cup H)'\right)=n(U)-n(M\cup H)=1105-655=450$
+            \end{solution}
+    \end{parts}
+
+
+\question \emph{Survivor}, \emph{CSI}, and \emph{ER} all belong to the Thursday
+night prime time lineup. A group of $600$ college students were surveyed.
+$350$ students watch \emph{Survivor}, $280$ watch \emph{CSI}, and
+$320$ watch \emph{ER}. $50$ students watch all three shows. $190$
+students watch both \emph{Survivor} and \emph{ER}. $180$ students
+watch both \emph{Survivor} and \emph{CSI}. $50$ students watch only
+\emph{ER}.
+    \begin{parts}        
+    \part Construct a Venn diagram, and write the appropriate numbers in the eight regions.
+        \begin{solution}
+            
+            \begin{tikzpicture}[scale=.6]    
+            \def\firstcircle{(90:1.75cm) circle (2.5cm)} 
+            \def\secondcircle{(210:1.75cm) circle (2.5cm)} 
+            \def\thirdcircle{(330:1.75cm) circle (2.5cm)}
+            \begin{scope}     
+            	\fill[white]\firstcircle;       
+            	\fill[white] \secondcircle;       
+            	\fill[white] \thirdcircle;     
+            \end{scope}     
+            \begin{scope}
+            	\clip 
+            	\secondcircle;       
+            	\fill[white] 
+            	\firstcircle;     
+            \end{scope}     
+            \begin{scope}       
+            	\clip 
+            	\secondcircle;       
+            	\fill[white] 
+            	\thirdcircle;     
+            \end{scope}     
+            \begin{scope}       
+            	\clip 
+            	\firstcircle;       
+            	\fill[white] 
+            	\thirdcircle;     
+            \end{scope}     
+            \begin{scope}       
+            	\clip \firstcircle;       
+            	\clip \secondcircle;       
+            	\fill[white] \thirdcircle;     
+            \end{scope}     
+            \draw 
+            	\firstcircle node[text=black] {$S$} node[above=10pt] {$30$};     
+            \draw 
+            	\secondcircle node [text=black,below left] {$CSI$} node[below left=10pt] {$20$};     
+            \draw 
+            	\thirdcircle node [text=black,below right] {$ER$} node[below right=10pt] {$50$};     
+            \begin{scope}[font=\small]       
+            	\node(0,0) {$50$}; %AnBnC       
+            	\draw(30:1.5cm) node {$140$}; %AnC       
+            	\draw(150:1.5cm) node {$130$}; %AnB       
+            	\draw(270:1.5cm) node {$80$}; %BnC    
+            \end{scope}
+            
+            \draw[thick] (-4.8,-3.55) rectangle (4.75,4.4) node[anchor=south east] at (current bounding box.south east) {$U$} node[anchor=north west] at (current bounding box.north west) {$100$}; 
+            
+            \end{tikzpicture}
+        
+        Number in $S$ and $ER$ but not $CSI$ is: $190-50=140$, Number
+        in $S$ and $CSI$ but not $ER$ is: $180-50=130$. Number in $CSI$
+        and $ER$ but not $S$ is: $320-50-140-50=80$. Number only in $S$
+        is: $350-130-50-140=30$. Number only in $CSI$ is: $280-130-50-80=20$.
+        \end{solution}
+    \part How many students watch only \emph{Survivor}?
+        \begin{solution}
+        From diagram:$30$
+        \end{solution}
+    \part How many students watch \emph{CSI }or \emph{Survivor}?
+        \begin{solution}
+        From diagram: $30+130+140+50+80+20=450$, or by the union rule:
+        $350+280-180=450$.
+        \end{solution}
+    \part How many students watch \emph{CSI }or \emph{ER}?
+        \begin{solution}
+        From diagram: $20+130+50+80+140+50=570$, or by the union rule:
+        $280+320-130=470$
+        \end{solution}
+    \part How many students watch only \emph{CSI}?
+        \begin{solution}
+        From diagram: $20$
+        \end{solution}
+    \end{parts}
+
+
+\question A certain model of pickup truck is available in five exterior colors,
+three interior colors, and three interior styles. In addition, the
+transmission can be either manual or automatic, and the truck can
+have either two-wheel or four-wheel drive. How many different versions
+of the pickup truck can be ordered?
+    \begin{solution}
+        We have five categories, $\underline{\,\,\,\,\,}\times\underline{\,\,\,\,\,}\times\underline{\,\,\,\,\,}\times\underline{\,\,\,\,\,}\times\underline{\,\,\,\,\,}$.
+        Filling in the number of choices for each category we have, 
+        \[
+        \underline{5}\times\underline{3}\times\underline{3}\times\underline{2}\times\underline{2}=180
+        \]
+    \end{solution}
+
+
+\question The $\Delta \Delta \Delta$ fraternity must elect a president, vice president, and treasurer from its 30 members. How many ways can this be done?
+    \begin{solution}
+        There are no repeats and order does matter (since order will determine
+        who is pres., vice pres., and treasurer). So we use permutations,
+        \begin{eqnarray*}
+        _{30}P_{3}=\frac{30!}{(30-3)!}=\frac{30!}{27!} & = & 30\cdot29\cdot28=24,360
+        \end{eqnarray*}
+    \end{solution}
+
+
+\question The local branch of a national business chain has 27 employees. If they all shake each others hand at the company picnic, at least how many handshakes occurred?
+    \begin{solution}
+        There are no repeats and order does NOT matter (Joe shaking hands
+        with Betty is the same as Betty shaking hands with Joe). So we use
+        combinations,
+        \[
+        _{27}C_{2}=\frac{27!}{(27-2)!2!}=\frac{27!}{25!2!}=\frac{27\cdot26}{2}=351
+        \]
+    \end{solution}
+
+
+\question Using a standard deck of $52$ cards,
+    \begin{parts}
+    \part how many ways can five cards be drawn?
+        \begin{solution}
+            Here order matters, e.g., $\{7\heartsuit,K\spadesuit,2\spadesuit,3\clubsuit,3\diamondsuit\}$
+            is a different way to draw the cards then $\{2\spadesuit,3\clubsuit,3\diamondsuit,7\heartsuit,K\spadesuit,\}$
+            since the order is different. So we use permutations,
+            \[
+            _{52}P_{5}=\frac{52!}{(52-5)!}=\frac{52!}{47!}=311,875,200
+            \]
+        \end{solution}
+    \part how many five card hands can be dealt?
+        \begin{solution}
+            Here order does not matter, e.g., $\{7\heartsuit,K\spadesuit,2\spadesuit,3\clubsuit,3\diamondsuit\}$
+            is the same hand as 
+            $$\{2\spadesuit,3\clubsuit,3\diamondsuit,7\heartsuit,K\spadesuit\}$$
+            So we use combinations, 
+            \[
+            _{52}C_{5}=\frac{52!}{(52-5)!5!}=2,598,960
+            \]
+        \end{solution}
+    \end{parts}    
+
+
+\question A three-person committee must be chosen from a group of ten men and twelve women. How many committees are possible if it must consist of the following?
+    \begin{parts}
+    \part Three men.
+        \begin{solution}
+            No repeats and order doesn't matter$\Rightarrow$combination.
+            $_{10}C_{3}=\frac{10!}{(10-3)!3!}=\frac{10\cdot9\cdot8}{3!f}=\frac{720}{6}=120$
+        \end{solution}
+    
+    \part Three women.
+        \begin{solution}
+            No repeats and order doesn't matter$\Rightarrow$combination.
+            $_{12}C_{3}=\frac{12!}{(12-3)!3!}=\frac{12\cdot11\cdot10}{3!}=\frac{1320}{6}=220$
+        \end{solution}
+    
+    \part One woman and two men.
+        \begin{solution}
+            Here we have two categories: $\underline{\,\,\,\,\,}\times\underline{\,\,\,\,\,}$.
+            For the first categories we have $12$ choices (equivalently, $_{12}C_{1}=\frac{12!}{(12-1)!1!}=12$),
+            and for the second we have $_{10}C_{2}=\frac{10!}{(10-2)!2!}=\frac{10\cdot9}{2}=45$.
+            \\
+            So we have $12\times45=540$ possibilities.
+        \end{solution}
+    
+    \part One man and two women, and one of these is selected as a spokesperson of the committee.
+        \begin{solution}
+            Similarly to above, we have two categories. For the first categories
+            we have $10$ choices, and for the second we have $_{12}C_{2}=\frac{12!}{(12-2)!2!}=\frac{12\cdot11}{2}=66$.
+            Then we select one of the three to be a spokesperson. \\
+            So we have $10\times66\times3=1980$ possibilities.
+            
+            Equivalently, use a permutation where the order of $2$ members
+            does not matter, $\frac{\left( 10\times\frac{12!}{10!}\times 3 \right) }{2!}=1980$
+            (like counting the ways to arrange the letters in ``SCHOOL''; the
+            order of the ``O'''s does not mater).
+        \end{solution}
+    \end{parts}
+
+    
+\question Each student at State University has a student ID number consisting
+of five digits (the first digit is nonzero, and the digits can be
+repeated) followed by two of the letters $A$, $B$, $C$, and $D$
+(letters cannot be repeated). How many different student numbers are
+possible?
+    \begin{solution}
+        We have five numbers $0-9$ which can be repeated, but the the
+        first is nonzero: $9\times10\times10\times10\times10=9\cdot10^{4}=90,000$
+        possibilities, and then two of four letters which cannot be repeated.
+        It is implied that the order of the letters does matter since $10000AB$
+        and $10000BA$ would be two different IDs. So for the letters we have,
+        $_{4}P_{2}=\frac{4!}{(4-2)!}=\frac{24}{2}=12$ possibilities. For
+        a total of $9\times10^{4}\times12=1,080,000$ possible ID numbers.
+    \end{solution}
+
+
+\question How many ways are there to place 6 identical objects into 3 different bins? 
+\begin{solution}
+This problem is similar to \#33 and \#35 on the pre-assessment. In general, the number of ways to place $n$ indistinguishable object into $k$ groups is $${n+k-1 \choose n} = {n+k-1 \choose k-1}$$ This is often called a "star and bar" approach. We can line up our identical objects (stars) and place dividers between them (bars) to indicate which bin they will go into. For example, $$\star \star | \star \star | \star \star$$ places 2 objects in each bin, and $$\star \star  \star | \star | \star \star |$$ places 3 into the first two bins and none in the last. Note that we need to count the ways to place $3-1=2$ bars in $6+2$ spots. Order does not matter: $${6+(3-1) \choose (3-1)} = {8 \choose 2}=28$$ Similarly, we can count the number of ways to place 6 stars in the eight places: $${8 \choose 6} = 28$$
+\end{solution}
+
+
+\question How many ways can we add three non-negative integers such that they sum to 9? (order matters)
+\begin{solution}
+This problem may be more difficult than what you'll see on the assessment. However, I thought it worth including as "counting by bijections" are listed in the assessment competencies methods. Furthermore, it's really no different than \#33 and \#35 on the pre-assessment\\ 
+
+The problem is asking us to count the number of ordered sets of non-negative integers, $(a,b,c)$, such that $$a+b+c=9$$ We need to describe the situation in terms of indistinguishable objects (as above). So we'll use a "star and bar" approach. Only we'll use ones and zeros instead (using bars for $0$'s would get confusing!). \\
+
+Think of $a,b,c$ as bins and the ones as indistinguishable objects. So we will need $9$ ones and $3-2$ zeros. For example $$11101101111$$ corresponds to $3+2+3=9$ and $$11111001111$$ corresponds to $5+0+4$. So now we have a bijection between the solutions to $a+b+c=9$ and these sequences of ones and zeros. And the problem is equivalent to counting the number of ways to choose 2 out 11 objects $${11 \choose 2}=55$$
+\end{solution}
+
+
+\question Which of the following functions maps a $11-$to$-1$ correspondence from the set ${1,2,3,\dots, 44}$ to the set ${1,2,\dots , 11}$?
+    
+    \begin{oneparchoices}
+    \choice $f(x)={x \choose 3}$
+    \choice $f(x)=\lfloor \frac{x}{11} \rfloor$
+    \CorrectChoice $f(x)=\lceil \frac{x}{11} \rceil$
+    \choice $f(x)=\lbrack \frac{x}{11} \rbrack$
+    \end{oneparchoices}
+    \begin{solution}
+        The notation $\lceil x \rceil$ is called a \textit{ceiling} function. It is the smallest integer less than or equal to $x$. For example, $\lceil \frac{1}{11} \rceil=\lceil .09\overline{09} \rceil=1$. So then,
+        $$\lceil \frac{1}{11} \rceil=\lceil \frac{2}{11} \rceil=\lceil \frac{3}{11} \rceil=\cdots \lceil \frac{11}{11} \rceil=1$$
+        
+        Two options here make no sense, ${x \choose 3}$ and $\lbrack \frac{x}{11} \rbrack$. Our only two real options are $f(x)=\lfloor \frac{x}{11} \rfloor$ and $f(x)=\lceil \frac{x}{11} \rceil$. It is to check that the former is incorrect: $\lfloor \frac{1}{11} \rfloor=0$, but $0$ is not in the set ${1,2,\dots , 11}$.
+    \end{solution}
+
+
+\question Which of the following functions maps a $11-$to$-1$ correspondence from $\{1,2,3,\dots, 44\}$ to $\{0,1,\dots , 10\}$?
+    
+    \begin{oneparchoices}
+    \choice $f(x)={x \choose 3}$
+    \CorrectChoice $f(x)=\lfloor \frac{x}{11} \rfloor$
+    \choice $f(x)=\lceil \frac{x}{11} \rceil$
+    \choice $f(x)=\lbrack \frac{x}{11} \rbrack$
+    \end{oneparchoices}
+    \begin{solution}
+        Again, two options here make no sense: ${x \choose 3}$ and $\lbrack \frac{x}{11} \rbrack$. Our only two real options are $f(x)=\lfloor \frac{x}{11} \rfloor$ and $f(x)=\lceil \frac{x}{11} \rceil$. What is different here is the range set. We need to map $11$ numbers to $0$. It is to check that which function does $\lfloor \frac{1}{11} \rfloor=0$. There are only two options. So carefully check that you are getting the correct one. 
+    \end{solution}
+
+\question What is the coefficient of $x^{6}y^{4}$ in $(x-2y)^{10}$?
+    \begin{solution}
+        Recall the Binomial Theorem:
+        $$(a+b)^{n}=\sum^{n}_{k=0} {c \choose k}a^{k}b^{n-k}$$
+        $a=x$ and $b=-2y$ (be careful with the sign!) \\
+        $$(x-2y)^{10}= \sum^{10}_{k=0} {10 \choose k}x^{k}(-2y)^{10-k}$$ 
+        Looking at the provided variables $x^{6}y^{4}$. So $k=6$. Now we just plug this in: 
+        $${10 \choose 6}x^{6}(-2y)^{10-6}=210(1)^{6}(-2)^{4}=3360$$ 
+    \end{solution}
+
+\question What is the value of 
+${10 \choose 0}-{10 \choose 1}+{10 \choose 2}+\cdots+{10 \choose 10}$?
+    \begin{solution}
+        0. Recall the Binomial Theorem:
+        $$(a+b)^{n}=\sum^{n}_{k=0} \binom{n}{k} a^{k}b^{n-k}$$ Now rewriting our situation, 
+        $${10 \choose 0}-{10 \choose 1}+{10 \choose 2}+\cdots+{10 \choose 10}=\sum^{10}_{k=0} {10 \choose k}(-1)^{k}(1)^{10-k}$$
+        If $a=-1$ and $b=1$ then $(-1+1)^{10}=0$. The text also gives this as an identity in 4.19 $$\binom{n}{0}-\binom{n}{1}+\binom{n}{2}-\cdots (-1)^{n}\binom{n}{n}=0$$  
+    \end{solution}
+\question Suppose that $B=\{0,1,2,\dots 8 \}$. If $f:A\rightarrow B$ is 3-to-1 mapping of $A$ onto $B$, what is $|A|$?
+
+    \begin{solution}
+        Recall that $|A|$ notates the number or elements in the set $A$. $B$ has 9 elements, $|B|=9$. $f$ maps 3 elements from $A$ to every element in $B$. So the $|A|=27$.
+    \end{solution}
+
+
+%%%another ? a closed form question??
+
+\end{questions}
+\newpage
+
+%%%%%Discrete Probability%%%%%%%%%%%%%%%%
+\section*{Discrete Probability}
+\begin{questions}
+\setlength\itemsep{\itemSpace} %set length above question. Needs to be set for each question environment
+\question A card is dealt from a well-shuffled, standard deck of $52$ cards.
+Find the probability of being dealt each of the following.
+    \begin{parts}
+        \part A red card
+            \begin{solution}
+                $\frac{n(\mbox{red cards})}{n(\mbox{cards})}=\frac{26}{52}=\frac{1}{2}$
+            \end{solution}
+        \part A queen
+            \begin{solution}
+                $\frac{n(\mbox{queens})}{n(\mbox{cards})}=\frac{4}{52}=\frac{1}{13}$
+            \end{solution}
+        \part A club
+            \begin{solution}
+                $\frac{n(\mbox{clubs})}{n(\mbox{cards})}=\frac{13}{52}=\frac{1}{4}$
+            \end{solution}
+        \part The queen of clubs
+            \begin{solution}
+                $\frac{n(\mbox{queen of clubs})}{n(\mbox{cards})}=\frac{1}{52}$
+            \end{solution}
+        \part A queen or a club
+            \begin{solution}
+                $\frac{n(\mbox{queens or clubs})}{n(\mbox{cards})}=\frac{4+13-1}{52}=\frac{16}{52}=\frac{4}{13}$
+            \end{solution}
+        \part Not a queen
+            \begin{solution}
+                $1-\frac{4}{52}=\frac{48}{52}=\frac{12}{13}$
+            \end{solution}
+    \end{parts}
+
+
+\question Three fair coins are tossed. Find each of the following
+    \begin{parts}
+        \part The sample space
+            \begin{solution}
+                \forestset{  
+                	L1/.style={rectangle, rounded corners, very     thick},   	
+                	L2/.style={rectangle, rounded corners, very     thick,
+                		edge={black,line width=.75pt,line cap=round}},   	
+                	L3/.style={rectangle, rounded corners, very     thick,
+                		edge={black,line width=.75pt,line cap=round}},   	
+                	L4/.style={rectangle, rounded corners, very     thick,
+                	edge={black,line width=.75pt,line cap=round}}, 
+                }
+                
+                \begin{forest}     
+                	for tree={
+                    		scale=.75,        
+                    		grow=0,
+                    		reversed, %tree direction         
+                    		parent anchor=east,
+                    		child anchor=west, %edge anchors   		edge={line cap=round},
+                    		outer sep=+1pt, %edge/node connection  		rounded corners,
+                    		%minimum width=15mm,
+                    		%minimum height=8mm, %node shape         l 		sep=10mm %level distance     
+                    		}   
+                    [Start,L1
+                    	[H,L2         
+                    		[H,L3            
+                    			[H \{HHH\},L4] 
+                    			[T \{HHT\},L4]         
+                    		]         
+                    		[T,L3          
+                    			[H \{HTH\},L4]
+                    			[T \{HTT\},L4]
+                    		]               
+                    	]
+                    	[T,L2         
+                    		[H,L3            
+                    			[H \{THH\},L4,]
+                    			[T \{THT\},L4,]         
+                    		]         
+                    		[T,L3          
+                    			[H \{TTH\},L4]
+                    			[T \{TTT\},L4]
+                    		]               
+                    	]  
+                    ] 
+                \end{forest}
+            \end{solution}
+        \part The event, $E_{1}$, that exactly two are tails.
+            \begin{solution}
+                $E_{1}=\{HTT,THT,TTH\}$
+            \end{solution}
+        \part The event, $E_{2}$, that at least two are tails.
+            \begin{solution}
+                $E_{2}=\{HTT,THT,TTH,TTT\}$
+            \end{solution}
+        \part The probability of $E_{1}$
+            \begin{solution}
+                $p(E_{1})=\frac{3}{8}$
+            \end{solution}
+        \part The probability and odds of $E_{2}$
+            \begin{solution}
+                $p(E_{2})=\frac{4}{8}=\frac{1}{2}$ 
+            \end{solution}
+    \end{parts}
+
+
+\question Five cards are dealt (without replacement) from a well-shuffled $52$ card standard
+deck. Find the probability of the following:
+    \begin{parts}
+        \part being dealt $5$ spades.
+            \begin{solution}
+                $\frac{_{13}C_{5}}{_{52}C_{5}}\approx 0.0004951$
+            \end{solution}
+        \part being dealt $4$ spades and $1$ heart.
+            \begin{solution}
+                $\frac{_{13}C_{4}\cdot_{13}C_{1}}{_{52}C_{5}}=\frac{_{13}C_{4}\cdot13}{_{52}C_{5}} \approx 0.003576$
+            \end{solution}
+        \part being dealt all the same suit.
+            \begin{solution}
+                $\frac{_{4}C_{1}\cdot_{13}C_{5}}{_{52}C_{5}}=\frac{4\cdot_{13}C_{5}}{_{52}C_{5}} \approx 0.00198$
+            \end{solution}
+        \part not being dealt all the same suit
+            \begin{solution}
+                This is just $1$ minus the answer above: $1-\frac{4\cdot_{13}C_{5}}{_{52}C_{5}} \approx 0.99801$
+            \end{solution}
+    \end{parts}
+
+
+\question A drawer has $7$ socks. $4$ socks are black and $3$ are white socks. John randomly pulls out $4$ socks. Find the probability of the following:
+    \begin{parts} 
+        \part all $4$ socks are black.
+            \begin{solution}
+                $\frac{_{4}C_{4}}{_{7}C_{4}}=\frac{1}{35}$
+            \end{solution}
+        \part exactly $2$ are white.
+            \begin{solution}
+                $\frac{_{3}C_{2}\cdot_{4}C_{2}}{_{7}C_{4}}=\frac{3\cdot6}{35}=\frac{18}{35}$ \\
+                $2$ are white so $2$ are white.
+            \end{solution}
+        \part at least $3$ are white.
+            \begin{solution}
+                $\frac{_{3}C_{3}\cdot_{4}C_{0}+_{3}C_{4}\cdot_{4}C_{0}}{_{7}C_{4}}=\frac{1\cdot1+0\cdot1}{35}=\frac{1}{35}$ \\
+                $3$ OR $4$ are white.
+            \end{solution}
+        \part at most $2$ are black. 
+            \begin{solution}
+                $\frac{_{4}C_{0}\cdot_{3}C_{4}+_{4}C_{1}\cdot_{3}C_{3}+_{4}C_{2}\cdot_{3}C_{2}}{_{7}C_{4}}=\frac{1\cdot0+4\cdot1+6\cdot3}{35}=\frac{22}{35}$ \\
+                $0$ or $1$ or $2$ are black. 
+            \end{solution}
+            \begin{solution}
+                Note: Above, $_{3}C_{4}=0$ as there are $0$ ways to choose $4$
+                white socks if there are only $3$. I will \textbf{not} have a situation
+                like this on the exam.
+            \end{solution}
+    \end{parts}
+
+
+\question In a certain game, a player bets \$5. There is a 25\% chance that the player wins \$2, a 25\% chance the player wins \$7, and a 50\% chance the player loses \$5. What is the expected outcome of this game? Round to the nearest cent. 
+    \begin{solution} Recall the definition of \emph{expected value}.
+        The \emph{expected value} of a discrete random variable $X$ is $$E[X]=\sum_{s\in S}X(s)p(s)$$ where $S$ is the set of possible outcomes of $X$, $p(s)$ is the probability of outcome $s$, and $X(s)$ is the value of $X$ for $s$.
+    \end{solution}
+    \begin{solution}
+        $E[X]=2(.25)+7(.25)+(-5)(.50)=-.25$
+    \end{solution}
+
+\question WGU is holding a raffle to raise money for a new internet service.
+The tickets cost $\$10$ each. The value and number of each prize
+to be given away is listed in the provided table. Find the expected
+value of a ticket under the given circumstances. \\
+    \begin{center}
+    \begin{tabular}{|c|c|c|}
+        \hline 
+        \textbf{Prize} & \textbf{Value} & \textbf{\# }\tabularnewline
+        \hline 
+        Vacation & $\$3,000$ & 1\tabularnewline
+        \hline 
+        Stereo & $\$500$ & 5\tabularnewline
+        \hline 
+        Books & $\$100$ & 10\tabularnewline
+        \hline 
+        T-shirt & $\$20$ & 100\tabularnewline
+        \hline 
+    \end{tabular}
+    \end{center}
+    \begin{parts}
+            \begin{solution} Recall the definition of \emph{expected value}.
+                The \emph{expected value} of a discrete random variable $X$ is $$E[X]=\sum_{s\in S}X(s)p(s)$$ where $S$ is the set of possible outcomes of $X$, $p(s)$ is the probability of outcome $s$, and $X(s)$ is the value of $X$ for $s$.
+            \end{solution}
+            
+        \part $200$ tickets
+            \begin{solution}
+                There are $200-116=84$ losing tickets.\\
+                $E[X]=2990(\frac{1}{200})+490(\frac{5}{200})+90(\frac{10}{200})+10(\frac{100}{200})-10(\frac{84}{200})$\\
+                \hspace{0cm}\hphantom{$EV$}$=\$32.5$
+            \end{solution}
+        \part $1000$ tickets
+            \begin{solution}
+                There are $1000-116=884$ losing tickets.\\
+                $E[X]=2990(\frac{1}{1000})+490(\frac{5}{1000})+90(\frac{10}{1000})+10(\frac{100}{1000})-10(\frac{884}{1000})$\\
+                \hspace{0cm}\hphantom{$EV$}$=-\$1.5$
+            \end{solution}
+    \end{parts}
+
+
+\question A fair six-sided dice is rolled 5 times. Find the probability of the
+following:
+    \begin{parts}
+        \part All $2$'s are rolled.
+            \begin{solution}
+                $p(\mbox{five }2's)=\frac{1}{6}\cdot\frac{1}{6}\cdot\frac{1}{6}\cdot\frac{1}{6}\cdot\frac{1}{6}=\frac{1}{6^{5}}$
+            \end{solution}
+        \part Four $2$'s are rolled and the \nth{5} roll is a $1$.
+            \begin{solution}
+                $p(\mbox{four }2's\cap\mbox{one }1)=(\frac{1}{6}\cdot\frac{1}{6}\cdot\frac{1}{6}\cdot\frac{1}{6})\cdot\frac{1}{6}=\frac{1}{6^{5}}$
+            \end{solution}
+        \part Not all $2$'s are rolled.
+            \begin{solution}
+                $1-\frac{1}{6^{5}}$
+            \end{solution}
+    \end{parts}
+
+\end{questions}
+\newpage
+
+%%%%%%Bayes' Theorem%%%%%%%%%%%%%%%%%%%%%
+\section*{Baye's Theorem}
+\begin{questions}
+\setlength\itemsep{\itemSpace} %set length above question. Needs to be set for each question environment
+    \begin{solution}
+        Recall \textbf{Bayes' Theorem:} For events $X$ and $F$ from a common sample space where $P(X),P(F)\neq 0$, 
+        \begin{equation}\label{eqn: bayes1}
+            P(F|X)=\frac{P(X|F)P(F)}{P(X)}\tag{version 1}
+        \end{equation}
+
+        and equivalently,
+        \begin{equation}
+            P(F|X)=\displaystyle \frac{P(X|F)P(F)}{P(X|F)P(F)+P(X|\overline{F})P(\overline{F})}\tag{version 2}
+        \end{equation}
+        While the first version does not appear in ant textbook or pre-assessment practice problems, this equivalent definition is listed in the lesson summary. 
+        
+        Note that $P(F\cap X)=P(X|F)P(F)$. So version 1 is often shown as:
+        \begin{equation}\label{eqn: bayes1}
+            P(F|X)=\frac{P(X\cap F)}{P(X)}\tag{version 3}
+        \end{equation}
+    \end{solution}
+    
+\question Bag \#1 contains 10 blue marbles. Bag \#2 appears identical but contains 5 red marbles and 5 blue marbles. Suppose you randomly choose a bag and then randomly pick a blue marble. What is the probability that you choose bag \#2?
+    \begin{solution}
+        We know that a blue marble was chosen. So we are looking for the probability of selecting Bag \#2 \emph{given} that a blue marble was picked, e.g., $P(\#2|B)$. The conditional statement indicates we should use Bayes' Theorem. We'll use first version (seen above):
+            $$P(\#2|B)=\frac{P(B|\#2)P(\#2)}{P(B)}$$
+        So we need to find the following:
+        \begin{itemize}
+            \item The probability of selecting Bag \#2: $P(\#2)=\frac{1}{2}$
+            \item The probability of selecting Bag a blue marble given that Bag \#2 was chosen:$P(B|\#2)=\frac{5}{10}$
+            \item The probability of selecting a blue marble. We'd have to select Bag \#1 or Bag \#2 and then select a blue marble: $P(B)=\frac{1}{2}\cdot \frac{5}{10}+\frac{1}{2}\cdot 1=\frac{3}{4}$. When the case arises that you can't find this, use the other version of Bayes' Theorem.
+        \end{itemize}
+        Now we plug and play: $$P(\#2|B)=\frac{P(B|\#2)P(\#2)}{P(B)}=\frac{\frac{5}{10} \cdot (\frac{1}{2})}{\frac{3}{4}}=\frac{1}{3}$$
+        Note that we could have used the other version of Bayes' Theorem:
+        \[ P(\#2|B)=\frac{P(B|\#2)P(\#2)}{P(B|\#2)P(\#2)+P(B|\overline{\#2})P(\overline{\#2})}=\frac{\frac{5}{10} \cdot (\frac{1}{2})}{\frac{5}{10} \cdot (\frac{1}{2})+1 \cdot (\frac{1}{2})}=\frac{1}{3} \]
+    \end{solution}
+
+    
+\question The zombie apocalypse has come. However, it's not as bad as the movies. Only \%1 of the population will get infected. 90\% of the people who are infected with this disease will test positive, but \%5 of the people tested will have false positives (meaning the test shows positive but they are \textbf{not} infected). What is the probability that a person is infected if the test shows positive? Approximate your answer to the $4^{\text{th}}$ decimal place.
+    \begin{solution}
+        We are looking for the probability that someone is infected given that they have tested positive, e.g., $P(I|T)$. As this is a conditional probability questions, we should immediately consider using Bayes' theorem:
+         \[ P(I|T)=\displaystyle \frac{P(T|I)P(I)}{P(T|I)P(I)+P(T|\overline{I})P(\overline{I})} \]
+        So we need the following:
+        \begin{itemize}
+            \item The probability that a person is infected: $P(I)=.01$
+            \item The probability that an infected person tests positive (true positive): $P(T|I)=.90$
+            \item The probability that a person is not infected: $P(\overline{I})=.99$
+            \item The probability that a non-infected person tests positive (false positive): $P(T|\overline{I})=.05$ 
+        \end{itemize}
+        
+        Now we plug these values into the formula:
+         \[ P(I|T)=\displaystyle \frac{P(T|I)P(I)}{P(T|I)P(I)+P(T|\overline{I})P(\overline{I})}
+         =\frac{(.90)(.01)}{(.90)(.01)+(.05)(.99)}\approx 0.1538
+         \]
+        Note that using this version of Bayes' theorem makes sense because we were given the probabilities of a false positive and a true positive. To use the other version,
+        $$P(I|T)=\frac{P(T|I)P(I)}{P(T)}$$
+        we would need to find $P(T)$, but this is the probability that someone who is infected tests positive OR someone who is not infected tests positive, i.e.,
+        $$P(T)=P(T\cap I)+P(T\cap \overline{I})=P(T|I)P(I)+P(T|\overline{I})P(\overline{I})$$
+        The denominator of the other version. Though more complicated to write, it also applies to more general situations.
+    \end{solution}
+
+
+\end{questions}
+
+\end{document}
