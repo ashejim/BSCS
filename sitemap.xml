@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://localhost:3000/sitemap_style.xsl" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://localhost:3000</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/c949</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/c950</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/c951</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/c952</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/c952-binary-practice</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/c952-pipelining-practice</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/c952-cpu-time-practice</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/support-this-page</loc>
+  </url>
+</urlset>
